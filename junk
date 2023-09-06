@@ -1,0 +1,2008 @@
+#   CREATE TABLE mixedPeople (     ID INT AUTO_INCREMENT PRIMARY KEY,     FirstAnimal VARCHAR(50),     SecondAnimal VARCHAR(50),     ImageName VARCHAR(100),     ImageURL TEXT);
+
+# DROP TABLE IF EXISTS mixedPeople;  
+
+
+#   INSERT INTO mixedPeople (FirstAnimal, SecondAnimal, ImageName, ImageURL) VALUES
+
+# ('JoeBiden', 'DonaldTrump', 'JoeBiden + DonaldTrump.png', 'https://mixit-bucket.s3.amazonaws.com/mixedPeople/JoeBiden+%2B+DonaldTrump.png'),
+# ('ElonMusk', 'MarkZuckerberg', ' Elon Musk+Mark Zuckerberg .png', 'https://mixit-bucket.s3.amazonaws.com/mixedPeople/Elon+Musk%2BMark+Zuckerberg+.png'),
+# ('KanyeWest', 'ChrisRock', 'Kanye West+Chris Rock.png .png', 'https://mixit-bucket.s3.amazonaws.com/mixedPeople/Kanye+West%2BChris+Rock.png'),
+# ('KimJongun', 'JackieChan', 'KimJongun+JackieChan.png', 'https://mixit-bucket.s3.amazonaws.com/mixedPeople/Kim+Jong-un%2BJackie+Chan.png'),
+# ('LebronJames', 'MichaelJordan', 'Lebron James+Michael Jordan.png', 'https://mixit-bucket.s3.amazonaws.com/mixedPeople/Lebron+James%2BMichael+Jordan.png'),
+# ('Shakira', 'Rihanna', 'Shakira+Rihanna.png', 'https://mixit-bucket.s3.amazonaws.com/mixedPeople/Shakira%2BRihana.png'),
+# ('TheRock', 'Obama', 'The Rock + Obama.png', 'https://mixit-bucket.s3.amazonaws.com/mixedPeople/The+Rock+%2B+Obama.jpeg'),
+# ('TigerWoods', 'LebronJames', 'Tiger Woods+Lebron James.png', 'https://mixit-bucket.s3.amazonaws.com/mixedPeople/Tiger+woods%2BLebron+James.png'),
+# ('DonaldTrump', 'Putin', 'DonaldTrump + Putin.png', 'https://mixit-bucket.s3.amazonaws.com/mixedPeople/DonaldTrump+%2B+Putin.png');
+
+
+
+# CREATE TABLE people (     ID INT AUTO_INCREMENT PRIMARY KEY,     animalName VARCHAR(50),     ImageName VARCHAR(100),     ImageURL TEXT );
+
+# DROP TABLE IF EXISTS people;  
+
+# INSERT INTO people (animalName, ImageName, ImageURL) VALUES    
+
+# ('JoeBiden', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/JoeBiden.png'),
+# ('DonaldTrump', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/DonaldTrump.png'),
+# ('ElonMusk', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/ElonMusk.png'),
+# ('MarkZuckerberg', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/MarkZuckerberg.png'),
+# ('KanyeWest', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/KanyeWest.png'),
+# ('ChrisRock', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/ChrisRock.png'),
+# ('JackieChan', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/JackieChan.png'),
+# ('LebronJames', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/LebronJames.png'),
+# ('MichaelJordan', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/MichaelJordan.png'),
+# ('Shakira', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/Shakira.png'),
+# ('Rihanna', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/Rihanna.png'),
+# ('TheRock', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/TheRock.png'),
+# ('Obama', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/Obama.png'),  
+# ('TigerWoods', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/TigerWoods.png'),
+# ('Putin', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/Putin.png'),
+# ('KimJongun', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/KimJongun.png'),
+# ('Bibi', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/bibi.png'), 
+# ('KevinHart', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/KevinHart.png'),
+# ('Einstein', 'X', 'https://mixit-bucket.s3.amazonaws.com/people/einstein.png');
+
+
+#----------------------------------------------------------------------------------------------#
+
+
+
+# Animals Category
+
+# CREATE TABLE mixedAnimal (     ID INT AUTO_INCREMENT PRIMARY KEY,     FirstAnimal VARCHAR(50),     SecondAnimal VARCHAR(50),     ImageName VARCHAR(100),     ImageURL TEXT);   
+
+# DROP TABLE IF EXISTS mixedAnimal;  
+
+#     INSERT INTO mixedAnimal (FirstAnimal, SecondAnimal, ImageName, ImageURL)
+#        VALUES
+#        ('Alligator', 'Frog', 'alligator + frog.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/alligator+%2B+frog.jpeg'),
+#        ('Chicken', 'Horse', 'chiken + horse.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/chicken+%2B+horse.png'),
+#        ('Ant', 'Turtle', 'ant + turtle.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/ant%2Bturtle.png'),
+#        ('Alligator', 'Lion', 'alligator + lion.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/alligator+%2B+lion.png'),
+#        ('Alligator', 'Mouse', 'alligator + mouse.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/aligator+%2B+mouse.png'),
+#        ('Alpaca', 'Eagle', 'Alpaca + eagle.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/alpaca+%2B+eagle.png'),
+#        ('Alpaca', 'Fox', 'Alpaca + Fox.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/alpaca+%2B+fox.png'),
+#        ('Alpaca', 'Pangolin', 'Alpaca + Pangolin.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/alpaca+%2B+pangolin.png'),
+#        ('Ant', 'Pig', 'Ant + Pig.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/ant+%2B+pig.png'),
+#        ('Ant', 'Shark', 'Ant + Shark.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/ant+%2B+shark.png'),       
+#        ('Bear', 'Wasp', 'Bear + Wasp.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/Bear%2B+wasp.jpeg'),
+#        ('Bear', 'Seal', 'Bear + Seal.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/bear%2Bseal.png'),
+#        ('Bee', 'Beatle', 'Bee + Beatle.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/bee+%2B+beatle.png'),
+#        ('Bee', 'Cow', 'Bee + Cow.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/bee+%2B+cow.png'),
+#        ('Bee', 'Eagle', 'Bee + eagle.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/bee+%2B+eagle.png'),
+#        ('Bee', 'Pig', 'Bee + Pig.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/bee+%2B+pig.png'),
+#        ('Bee', 'Dolphin', 'Bee + Dolphin.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/bee+%2Bdolphin.png'),
+#        ('Bird', 'Cameleon', 'Bird + Cameleon.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/bird+%2B+cameleon.png'),    
+#        ('Camel', 'Giraffe', 'Camel + Giraffe.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/camel+%2B+girrafe.png'),
+#        ('Cat', 'Shark', 'Cat + Shark.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/cat+%2B+shark.png'),
+#        ('Cat', 'Bird', 'Cat + Bird.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/cat%2Bbird.png'),
+#        ('Cat', 'Squirrel', 'Cat + Squirrel.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/cat%2Bsquirrel.png'),
+#        ('Cameleon', 'Frog', 'Cameleon + Frog.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/chameleon%2Bfrog.png'),
+#        ('Cameleon', 'Koala', 'Cameleon + Koala.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/chameleon%2Bkoala.png'),
+#        ('Cameleon', 'Turtle', 'Cameleon + Turtle.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/chameleon%2Bturtle.png'),
+#        ('Chicken', 'Horse', 'Chicken + Horse.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/chicken+%2B+horse.png'),
+#        ('Squirrel', 'Wasp', 'Squirrel + Wasp.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/Squirrel+%2B+wasp.png'),
+#        ('Squirrel', 'Snake', 'Squirrel + snake.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/Squirrel+%2B+snake.png'),
+#        ('Cow', 'Tiger', 'Cow + Tiger.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/cow+%2B+tiger.png'),  
+#        ('Dog', 'Frog', 'Dog + Frog.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/dog+%2B+frog.png'),
+#        ('Dog', 'Rhinoceros', 'Dog + Rhinoceros.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/dog%2Brhinoceros.png'),
+#        ('Donkey', 'Seahorse', 'Donkey + Seahorse.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/donkey+%2B+seahorse.png'),       
+#        ('Frog', 'Dog', 'Frog + Dog.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/frog+%2B+dog.png'),
+#        ('Guinea Pig', 'Lion', 'guinea pig + Lion.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/guinea+pig++%2B+lion.png'),
+#        ('Hedgehog', 'Snail', 'Hedgehog + Snail.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/hedgehog+%2B+snail.png'),
+#        ('Hedgehog', 'Turtle', 'Hedgehog + Turtle.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/hedgehog%2Bturtle.png'),
+#        ('Hippo', 'Dog', 'Hippo + Dog.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/hippo+%2B+dog.png'),
+#        ('Jellyfish', 'Beatle', 'Jellyfish + Beatle.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/jellyfish+%2B+beatle+.png'),
+#        ('Koala', 'Seahorse', 'Koala + Seahorse.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/koala+%2B+seahorse.png'),
+#        ('Koala', 'Zebra', 'Koala + Zebra.png', 'https://mixit-bucket.s3.amazonaws.com/mixedAnimal/Koala%2Bzebra.png');
+    #    ('', '', ' + .png', ''),
+    #    ('', '', ' + .png', ''),
+    #    ('', '', ' + .png', ''),
+    #    ('', '', ' + .png', ''),
+    #    ('', '', ' + .png', ''),
+    #    ('', '', ' + .png', ''), ;
+
+
+
+
+
+# CREATE TABLE animals (     ID INT AUTO_INCREMENT PRIMARY KEY,     animalName VARCHAR(50),     ImageName VARCHAR(100),     ImageURL TEXT );
+
+# DROP TABLE IF EXISTS animals; 
+
+# INSERT INTO animals (animalName, ImageName, ImageURL)
+#        VALUES
+# ('Alligator','alligator.jpeg', 'https://mixit-bucket.s3.amazonaws.com/animals/alligator.jpeg'),
+# ('Ant','ant.jpeg', 'https://mixit-bucket.s3.amazonaws.com/animals/ant.jpeg'),
+# ('Alpaca', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Alpaca.png'),
+# ('Bat', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/bat.jpeg'),
+# ('Bear', 'bear.jpeg', 'https://mixit-bucket.s3.amazonaws.com/animals/bear.jpeg'),
+# ('Beatle', 'Beatle.jpeg', 'https://mixit-bucket.s3.amazonaws.com/animals/Beatle.png'),
+# ('Bee', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/bee.jpeg'),
+# ('Bird', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/bird.jpeg'),
+# ('Butterfly', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/butterfly.jpeg'),
+# ('Camel', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/camel.jpeg'),
+# ('Cameleon', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Cameleon.png'),
+# ('Chameleon', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/chameleon.jpeg'),
+# ('Chicken','chicken.jpeg', 'https://mixit-bucket.s3.amazonaws.com/animals/chicken.jpeg'),
+# ('Cat', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/cat.jpeg'),
+# ('Cow', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/cow.jpeg'),
+# ('Dog', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/dog.jpeg'),
+# ('Donkey', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/donkey.jpeg'),
+# ('Dolphin', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Dolphin.png'),
+# ('Eagle', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/eagle.jpeg'),
+# ('Fox', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Fox.png'),
+# ('Frog', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/frog.jpeg'),
+# ('Giraffe', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/giraffe.jpeg'),
+# ('Guinea pig', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Guinea+pig.png'),
+# ('Gorilla', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/gorilla.jpeg'),
+# ('Hedgehog', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/hedgehog.jpeg'),
+# ('Hippo', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/hippo.jpeg'),
+# ('Horse','horse.jpeg', 'https://mixit-bucket.s3.amazonaws.com/animals/horse.jpeg'),
+# ('Hyena', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/hyena.jpeg'),
+# ('Jellyfish', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Jellyfish.png'),
+# ('Kangaroo', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/kangaroo.jpeg'),
+# ('Koala', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/koala.jpeg'),
+# ('Lion', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/lion.jpeg'),
+# ('Mantis', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/mantis.jpeg'),
+# ('Monkey', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/monkey.jpeg'),
+# ('Mouse', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/mouse.jpeg'),
+# ('Octopus', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/octopus.jpeg'),
+# ('Owl', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/owl.jpeg'),
+# ('Penguin', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/penguin.jpeg'),
+# ('Pangolin', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/pangolin.png'),
+# ('Pig', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/pig.png'),
+# ('Rabbit', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/rabbit.jpeg'),
+# ('Racoon', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/racoon.jpeg'),
+# ('Rhinoceros', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/rhinoceros.jpeg'),
+# ('Seal', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/seal.jpeg'),
+# ('Seahorse', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Seahorse.png'),
+# ('Shark', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Shark.png'),
+# ('Sheep', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/sheep.jpeg'),
+# ('Skunk', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Skunk.png'),
+# ('Snail', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/snail.jpeg'),
+# ('Snake', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/snake.jpeg'),
+# ('Spider', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/spider.jpeg'),
+# ('Squirrel', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/squirrel.jpeg'),
+# ('Tiger', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/tiger.jpeg'),
+# ('Tucan', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/Tucan.png'),
+# ('Turtle', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/turtle.jpeg'),
+# ('Wasp', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/wasp.jpeg'),
+# ('Wolf', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/wolf.jpeg'),
+# ('Zebra', 'X', 'https://mixit-bucket.s3.amazonaws.com/animals/zebra.jpeg');
+# ('', 'X', ''),
+# ('', 'X', ''),
+# ('', 'X', ''),
+# ('', 'X', ''),
+# ('', 'X', ''),
+# ('', 'X', ''),
+# ('', 'X', '');
+
+#----------------------------------------------------------------------------------------------#
+# FOOD Category
+
+# CREATE TABLE mixedFood (     ID INT AUTO_INCREMENT PRIMARY KEY,     FirstAnimal VARCHAR(50),     SecondAnimal VARCHAR(50),     ImageName VARCHAR(100),     ImageURL TEXT);   
+
+# DROP TABLE IF EXISTS mixedFood;  
+
+    # INSERT INTO mixedFood (FirstAnimal, SecondAnimal, ImageName, ImageURL)
+    #    VALUES
+    #    ('Pizza', 'Hamburger', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/+pizza+%2B+hamburger.png'),
+    #    ('Cereals', 'Pasta', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/cereals+%2B+pasta.png'),
+    #    ('Churros', 'Hotdog', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/Churros+%2B+hotdog.png'),
+    #    ('Falafel', 'Icecream', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/falafel+%2B+icecream.png'),
+    #    ('FrenchFries', 'Icecream', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/Frenchfries+%2B+icecream.png'),
+    #    ('Hamburger', 'Hotdog', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/hamburger+%2B+hotdog.png'),
+    #    ('Hamburger', 'Pizza', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/hamburger+%2B+pizza.png'),
+    #    ('Meatballs', 'Icecream', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/meatballs+%2B+icecream.png'),
+    #    ('Pancake', 'Hamburger', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/pancake+%2B+hamburger.png'),
+    #    ('Pancake', 'Ketchup', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/pancake+%2B+ketchup+.png'),
+    #    ('Pizza', 'Cake', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/pizza+%2B+cake.png'),
+    #    ('Shawarma', 'Padthai', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/shawarma+%2B+padthai.png'),
+    #    ('Souffle', 'Avocado', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/souffle+%2B+avocado.png'),
+    #    ('Watermelon', 'Pizza', 'X', 'https://mixit-bucket.s3.amazonaws.com/mixedFood/watermelon+%2B+pizza.png');
+#        ('', '', 'X', ''),
+#        ('', '', 'X', ''),
+#        ('', '', 'X', ''),
+#        ('', '', 'X', ''),
+#        ('', '', 'X', ''),
+#        ('', '', 'X', ''),
+
+
+# CREATE TABLE food (     ID INT AUTO_INCREMENT PRIMARY KEY,     animalName VARCHAR(50),     ImageName VARCHAR(100),     ImageURL TEXT );
+
+# DROP TABLE IF EXISTS food; 
+
+# INSERT INTO food (animalName, ImageName, ImageURL)
+# VALUES
+# ('Avocado', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Avocado.png'),
+# ('Cake', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Cake.png'),
+# ('Cereals', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Cereals.png'),
+# ('Churros', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Churros.png'),
+# ('Falafel', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Falafel.png'),
+# ('Frenchfries', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Frenchfries.png'),
+# ('Hamburger', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Hamburger.png'),
+# ('Hotdog', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Hotdog.png'),
+# ('Icecream', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Icecream.png'),
+# ('Ketchup', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Ketchup.png'),
+# ('Meatballs', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Meatballs.png'),
+# ('Padthai', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Padthai.png'),
+# ('Pasta', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Pasta.png'),
+# ('Pancake', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Pancake.png'),
+# ('Pizza', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Pizza.png'),
+# ('Shawarma', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Shawarma.png'),
+# ('Souffle', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Souffle.png'),
+# ('Watermelon', 'X', 'https://mixit-bucket.s3.amazonaws.com/food/Watermelon.png');
+
+
+
+
+#----------------------------------------------------------------------------------------------#
+
+
+
+
+# #   // app.get('/randomAnimals', (req, res) => {
+# #   //   console.log('Received request for random animals'); // Add this line for debugging
+  
+# #   //   // Query to fetch 4 random ImageURLs from the animals table
+# #   //   const sqlQuery = 'SELECT ImageURL FROM animals ORDER BY RAND() LIMIT 6';
+  
+# #   //   connection.query(sqlQuery, (err, results) => {
+# #   //     if (err) {
+# #   //       console.error('Error executing SQL query:', err);
+# #   //       res.status(500).json({ error: 'Internal Server Error' });
+# #   //     } else {
+# #   //       const imageUrlsArray = results.map((row) => row.ImageURL);
+# #   //       res.json(imageUrlsArray);
+# #   //     }
+# #   //   });
+# #   // });
+
+# #   // app.get('/specificAnimals', (req, res) => {
+# #   //   const { firstAnimal, secondAnimal } = req.query;
+# #   //   console.log('Received request for specific animals:', firstAnimal, secondAnimal); // Add this line for debugging
+  
+# #   //   // Query to fetch 2 specific ImageURLs from the animals table with matching AnimalName
+# #   //   const sqlQuery = `SELECT ImageURL FROM animals WHERE AnimalName IN (?, ?)`;
+# #   //   const values = [firstAnimal, secondAnimal];
+  
+# #   //   connection.query(sqlQuery, values, (err, results) => {
+# #   //     if (err) {
+# #   //       console.error('Error executing SQL query:', err);
+# #   //       res.status(500).json({ error: 'Internal Server Error' });
+# #   //     } else {
+# #   //       const imageUrlsArray = results.map((row) => row.ImageURL);
+# #   //       res.json(imageUrlsArray);
+# #   //     }
+# #   //   });
+# #   // });
+
+
+
+
+
+# # I think I got something, it seems like it finds the right pictures but adds them to the next iteration and not the current one as it supposed to, could that be the case ? 
+
+# # here's my game.page.ts:
+# # import { Component, OnDestroy } from '@angular/core';
+# # import { Platform } from '@ionic/angular';
+# # import { NavController } from '@ionic/angular';
+# # import { HttpClient } from '@angular/common/http';
+# # import { delay, forkJoin, of, Observable} from 'rxjs';
+# # import { switchMap } from 'rxjs/operators';
+# # import { map } from 'rxjs/operators';
+
+# # interface AnimalData {
+# #   FirstAnimal: string;
+# #   SecondAnimal: string;
+# #   ImageURL: string;
+# #   FirstAnimalURL: string; // Add this property for the specific animal URL
+# #   SecondAnimalURL: string; // Add this property for the specific animal URL
+# # }
+
+
+# # @Component({
+# #   selector: 'app-game',
+# #   templateUrl: 'game.page.html',
+# #   styleUrls: ['game.page.scss'],
+# # })
+# # export class GamePage implements OnDestroy {
+# #   imageUrls: AnimalData[] = [];
+# #   currentIndex: number = 0;
+# #   displayDuration: number = 7000; // 7 seconds
+# #   finalScore: number = 0;
+# #   playerName: string = '';
+# #   timer: any;
+# #   remainingTime: number = 7; // 7 seconds
+# #   countdownInterval: any;
+# #   randomAnimalUrls: string[] = [];
+
+# #   constructor(
+# #     private platform: Platform,
+# #     private navCtrl: NavController,
+# #     private http: HttpClient
+# #   ) {
+# #     this.platform.ready().then(() => {
+# #       this.startGame();
+# #     });
+# #   }
+
+# #   ngOnDestroy() {
+# #     clearInterval(this.countdownInterval);
+# #   }
+
+# #   fetchRandomAnimals() {
+# #     // Create a comma-separated string of random animal names to exclude from the query
+# #     const excludeAnimals = this.randomAnimalUrls.join(',');
+  
+# #     // Fetch random animal image URLs from the server and pass the excludeAnimals parameter
+# #     this.http.get<string[]>(`http://localhost:3333/randomAnimals?excludeAnimals=${encodeURIComponent(excludeAnimals)}`).subscribe(
+# #       (imageUrls: string[]) => {
+# #         this.randomAnimalUrls = imageUrls; // Save the fetched random animal image URLs
+# #       },
+# #       (error) => {
+# #         console.error('Failed to fetch random animal images:', error);
+# #         alert('Failed to fetch random animal images. Please try again.');
+# #       }
+# #     );
+# #   }
+
+
+# #   startGame() {
+# #     this.finalScore = 0;
+# #     this.playerName = '';
+# #     this.timer = null;
+# #     this.remainingTime = 5;
+# #     this.countdownInterval = null;
+# #     this.fetchRandomAnimals(); // Make sure this line is correct
+
+  
+# #     // Fetch mixed animal image URLs from the server
+# #     const mixedAnimalURLs$ = this.http.get<AnimalData[]>('http://localhost:3333/mixedAnimal');
+
+# #     // Fetch random animal image URLs from the server
+# #     const randomAnimalURLs$ = this.http.get<string[]>('http://localhost:3333/randomAnimals');
+
+# #     // Use forkJoin to make parallel API calls
+# #     forkJoin([mixedAnimalURLs$, randomAnimalURLs$]).subscribe(
+# #       ([mixedAnimalURLs, randomAnimalURLs]: [AnimalData[], string[]]) => {
+# #         this.imageUrls = mixedAnimalURLs;
+# #         this.randomAnimalUrls = randomAnimalURLs;
+
+# #         this.updateRandomAnimals().subscribe(() => {
+# #           // Start displaying images
+# #           this.displayRandomAnimals();
+# #         });
+# #       },
+# #       (error) => {
+# #         console.error('Failed to fetch data:', error);
+# #         alert('Failed to fetch data. Please try again.');
+# #       }
+# #     );
+# #   }
+  
+  
+
+
+# #   displayRandomAnimals() {
+# #     clearTimeout(this.timer);
+# #     clearInterval(this.countdownInterval);
+  
+# #     // Check if currentIndex is within bounds
+# #     if (this.currentIndex < this.imageUrls.length) {
+# #       const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+# #       this.displayRandomImage(imageUrl);
+  
+# #       // Display the specific animal images for the current mixedAnimal picture
+# #       const specificAnimalURLs = [
+# #         this.imageUrls[this.currentIndex].FirstAnimalURL,
+# #         this.imageUrls[this.currentIndex].SecondAnimalURL
+# #       ];
+  
+# #       this.displaySpecificAnimals(specificAnimalURLs, imageUrl); // Display specific animal images
+  
+# #       // Start the countdown
+# #       this.remainingTime = 7;
+# #       this.countdownInterval = setInterval(() => {
+# #         this.remainingTime--;
+# #         if (this.remainingTime === 0) {
+# #           clearInterval(this.countdownInterval);
+# #           this.currentIndex++; // Move to the next image
+# #           this.displayRandomAnimals(); // Call recursively with the updated images
+# #         }
+# #       }, 1000);
+# #     } else {
+# #       // All images have been displayed
+# #       this.finishGame();
+# #     }
+  
+# #     // Fetch 6 random animal image URLs to ensure we have enough for the next picture
+# #     this.fetchRandomAnimals();
+# #   }
+
+  
+# #   updateRandomAnimals(): Observable<any> {
+# #     const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+# #     const firstAnimal = this.imageUrls[this.currentIndex].FirstAnimal;
+# #     const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal;
+  
+# #     console.log('Updating random animals:');
+# #     console.log('First Animal:', firstAnimal);
+# #     console.log('Second Animal:', secondAnimal);
+  
+# #     // Fetch specific animal image URLs for FirstAnimal and SecondAnimal separately
+# #     const specificAnimalFirst$ = this.http.get<string[]>(`http://localhost:3333/specificAnimals?firstAnimal=${encodeURIComponent(firstAnimal)}`);
+# #     const specificAnimalSecond$ = this.http.get<string[]>(`http://localhost:3333/specificAnimals?secondAnimal=${encodeURIComponent(secondAnimal)}`);
+  
+# #     // Fetch random animal image URLs excluding FirstAnimal and SecondAnimal
+# #     const excludeAnimals = `${firstAnimal},${secondAnimal}`;
+# #     const randomAnimalURLs$ = this.http.get<string[]>(`http://localhost:3333/randomAnimals?excludeAnimals=${encodeURIComponent(excludeAnimals)}`);
+# #       // Log the SQL query for the specific animal FirstAnimal
+# #     specificAnimalFirst$.subscribe((specificAnimalFirstUrls) => {
+# #       console.log('SQL Query for First Animal:', specificAnimalFirstUrls);
+# #     });
+
+# #     // Log the SQL query for the specific animal SecondAnimal
+# #     specificAnimalSecond$.subscribe((specificAnimalSecondUrls) => {
+# #       console.log('SQL Query for Second Animal:', specificAnimalSecondUrls);
+# #     });
+    
+# #     return forkJoin([specificAnimalFirst$, specificAnimalSecond$, randomAnimalURLs$]).pipe(
+# #       switchMap(([specificAnimalFirst, specificAnimalSecond, randomAnimalURLs]: [string[], string[], string[]]) => {
+# #         console.log('Specific Animal URLs for First Animal:', specificAnimalFirst);
+# #         console.log('Specific Animal URLs for Second Animal:', specificAnimalSecond);
+# #         console.log('Random Animal URLs:', randomAnimalURLs);
+# #         // Shuffle the arrays to get random elements
+# #         specificAnimalFirst = this.shuffleArray(specificAnimalFirst);
+# #         specificAnimalSecond = this.shuffleArray(specificAnimalSecond);
+# #         randomAnimalURLs = this.shuffleArray(randomAnimalURLs);
+  
+# #         // Ensure we have exactly 2 specific animal URLs for each FirstAnimal and SecondAnimal
+# #         const selectedSpecificURLs = [...specificAnimalFirst.slice(0, 2), ...specificAnimalSecond.slice(0, 2)];
+# #         const selectedRandomURLs = this.getRandomUniqueElements(randomAnimalURLs, 4);
+# #         const allAnimalURLs = [...selectedSpecificURLs, ...selectedRandomURLs];
+# #         this.displaySpecificAnimals(allAnimalURLs, imageUrl);
+  
+# #         // Update the randomAnimalUrls array with the new URLs
+# #         this.randomAnimalUrls = selectedRandomURLs;
+  
+# #         // Return an observable that resolves when the data is updated
+# #         return of(null);
+# #       })
+# #     );
+# #   }
+  
+  
+
+# #   getRandomUniqueElements(array: any[], count: number): any[] {
+# #     // Function to get 'count' random unique elements from the array
+# #     if (array.length <= count) {
+# #       return array;
+# #     }
+  
+# #     const result: any[] = [];
+# #     const indices: Set<number> = new Set();
+  
+# #     while (indices.size < count) {
+# #       const index = Math.floor(Math.random() * array.length);
+# #       if (!indices.has(index)) {
+# #         indices.add(index);
+# #         result.push(array[index]);
+# #       }
+# #     }
+  
+# #     return result;
+# #   }
+  
+
+# #   shuffleArray(array: any[]): any[] {
+# #     // Function to shuffle an array using Fisher-Yates algorithm
+# #     for (let i = array.length - 1; i > 0; i--) {
+# #       const j = Math.floor(Math.random() * (i + 1));
+# #       [array[i], array[j]] = [array[j], array[i]];
+# #     }
+# #     return array;
+# #   }
+  
+  
+  
+# #   displaySpecificAnimals(specificAnimalURLs: string[], mixedAnimalImageUrl: string) {
+# #     // Display the mixedAnimal image
+# #     this.displayRandomImage(mixedAnimalImageUrl);
+  
+# #     // Display the specific animal images below the mixedAnimal image
+# #     const specificAnimalImageElements = document.getElementsByClassName(
+# #       'specific-animal-image'
+# #     );
+  
+# #     const specificAnimalImageArray = Array.from(
+# #       specificAnimalImageElements
+# #     ) as HTMLImageElement[];
+# #     for (let i = 0; i < specificAnimalImageArray.length; i++) {
+# #       if (i < 2 && specificAnimalURLs[i]) {
+# #         specificAnimalImageArray[i].src = specificAnimalURLs[i];
+# #       } else {
+# #         specificAnimalImageArray[i].src = this.randomAnimalUrls[i - 2]; // Set the remaining images to random animals
+# #       }
+# #     }
+# #   }
+ 
+
+# #   displayRandomImage(imageUrl: string) {
+# #     const animalImageElement = document.getElementById(
+# #       'animalImage'
+# #     ) as HTMLImageElement;
+# #     if (animalImageElement) {
+# #       animalImageElement.src = imageUrl;
+# #     }
+# #   }
+
+# #   getCurrentImageUrl(): string {
+# #     if (this.imageUrls.length > 0) {
+# #       return this.imageUrls[this.currentIndex].ImageURL;
+# #     } else {
+# #       return ''; // Return an empty string if no image URLs are available
+# #     }
+# #   }
+
+# #   generateAnimalImages() {
+# #   }
+
+# #   nextPicture() {
+# #     this.displayNextPicture(); // Call displayNextPicture() to show the next mixed animal picture
+  
+# #     // Update random animal pictures for the next mixed animal picture
+# #     this.updateRandomAnimals().subscribe(() => {
+# #       this.displayRandomAnimals();
+# #     });
+# #   }
+  
+# #   displayNextPicture() {
+# #     // Clear the countdown interval to prevent double counting
+# #     clearInterval(this.countdownInterval);
+# #     this.remainingTime = 7;
+  
+# #     // Check if currentIndex is within bounds
+# #     if (this.currentIndex < this.imageUrls.length - 1) {
+# #       this.currentIndex++; // Move to the next image
+# #     } else {
+# #       // Call updateRandomAnimals() when the user reaches the end of all images
+# #       this.currentIndex = 0; // Reset the index
+# #     }
+  
+# #     // Get the next image URL
+# #     const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+# #     this.displayRandomImage(imageUrl);
+  
+# #     // Start the countdown
+# #     this.countdownInterval = setInterval(() => {
+# #       this.remainingTime--;
+# #       if (this.remainingTime === 0) {
+# #         clearInterval(this.countdownInterval);
+# #         this.updateRandomAnimals().subscribe(() => {
+# #           this.displayRandomAnimals(); // Call recursively with the updated images
+# #         });
+# #       }
+# #     }, 1000);
+# #   }
+  
+  
+  
+
+# #   finishGame() {
+# #     // Logic for finishing the game
+# #   }
+
+# #   seeTopTen() {
+# #     this.navCtrl.navigateForward('/top-ten');
+# #   }
+
+
+# #   private sendScore() {
+# #     // Prepare the data to be sent
+# #     const data = { name: this.playerName, score: this.finalScore };
+
+# #     // Send a POST request to your API endpoint
+# #     //this.http.post('http://gamedb.cbgja1mg2wpp.us-east-1.rds.amazonaws.com/score_table', data).subscribe(
+# #     this.http.post('http://localhost:3333/score_table', data).subscribe(
+# #       () => {
+# #         // Handle the successful response
+# #         console.log('Score saved successfully');
+# #         // this.navCtrl.navigateBack('/home');
+# #         this.navCtrl.navigateBack('/top-ten');
+# #       },
+# #       (error) => {
+# #         // Handle errors
+# #         console.error('Failed to save score:', error);
+# #         const errorMessage = error.error?.error || 'Failed to save score. Please try again.';
+# #         alert('Failed to save score. Please try again: ' + errorMessage);
+# #       }
+# #     );
+# #   }
+
+  
+# # }
+
+
+# # and here's my server.js:
+# # const express = require('express');
+# # const bodyParser = require('body-parser');
+# # const mysql = require('mysql2');
+# # const cors = require('cors');
+
+# # const app = express();
+# # //const port = 3306;
+# # const port = 3333;
+
+# # app.use(bodyParser.json());
+# # app.use(cors());
+
+# # const connection = mysql.createConnection({
+# #   host: '127.0.0.1',
+# #   user: 'root',
+# #   password: 'password',
+# #   database: 'gamedb',
+# # });
+
+# # /* 
+# # the session of change to AWS server in the files
+# # home.page.ts
+# # game.page.ts
+# # top-ten.page.ts
+# # and of course server.js (this file)
+# # also, need to change the port (in this file on top) to port 3306 (default of mysql)
+# # the second query in the link below:
+# # https://chat.openai.com/share/c2b96df8-09bd-4025-b731-f42667556f6d
+# # */
+
+
+# # // const connection = mysql.createConnection({
+# # //   host: 'gamedb.cbgja1mg2wpp.us-east-1.rds.amazonaws.com',
+# # //   user: 'mixitAdmin',
+# # //   password: 'mixitPassword',
+# # //   database: 'gamedb',
+# # // });
+
+# # connection.connect((err) => {
+# #   if (err) {
+# #     console.error('Error connecting to MySQL database:', err);
+# #     return;
+# #   }
+# #   console.log('Connected to MySQL database');
+# # });
+
+# # app.get('/', (req, res) => {
+# #   connection.query('SELECT * FROM score_table', (error, results, fields) => {
+# #     if (error) {
+# #       console.error('Error executing MySQL query:', error);
+# #       res.status(500).send('Internal Server Error');
+# #       return;
+# #     }
+# #     res.send(results);
+# #   });
+# # });
+
+# # app.post('/score_table', (req, res) => {
+# #     const { name, score } = req.body;
+  
+# #     connection.query(
+# #       'INSERT INTO score_table (name, score) VALUES (?, ?)',
+# #       [name, score],
+# #       (error, results, fields) => {
+# #         if (error) {
+# #           console.error('Error executing MySQL query:', error);
+# #           res.status(500).json({ message: 'Failed to save score. Please try again.' });
+# #           return;
+# #         }
+# #         res.json({ message: 'Score saved successfully' });
+# #       }
+# #     );
+# #   });
+  
+  
+  
+# #   // Define an API endpoint to fetch the image URLs from the mixedAnimal table
+# #   app.get('/mixedAnimal', (req, res) => {
+# #   console.log('Received request for mixed animals'); // Add this line for debugging
+# #   const sqlQuery = 'SELECT FirstAnimal, SecondAnimal, ImageURL FROM mixedAnimal';
+# #   connection.query(sqlQuery, (err, results) => {
+# #     if (err) {
+# #       console.error('Error executing SQL query:', err);
+# #       res.status(500).json({ error: 'Internal Server Error' });
+# #     } else {
+# #       res.json(results);
+# #     }
+# #   });
+# # });
+
+
+
+  
+# #   app.get('/specificAnimals', (req, res) => {
+# #     const { firstAnimal, secondAnimal } = req.query;
+# #     console.log('Received request for specific animals:', firstAnimal, secondAnimal); // Add this line for debugging
+  
+# #     // Query to fetch 2 specific ImageURLs from the animals table with matching AnimalName
+# #     const sqlQuery = `SELECT ImageURL FROM animals WHERE AnimalName IN (?, ?)`;
+# #     const values = [firstAnimal, secondAnimal];
+  
+# #     connection.query(sqlQuery, values, (err, results) => {
+# #       if (err) {
+# #         console.error('Error executing SQL query:', err);
+# #         res.status(500).json({ error: 'Internal Server Error' });
+# #       } else {
+# #         const imageUrlsArray = results.map((row) => row.ImageURL);
+# #         res.json(imageUrlsArray);
+# #       }
+# #     });
+# #   });
+  
+# #   app.get('/randomAnimals', (req, res) => {
+# #   const { excludeAnimals } = req.query;
+# #   console.log('Received request for random animals');
+# #   console.log('Exclude animals:', excludeAnimals);
+
+# #   // Check if excludeAnimals exists and if it's not an empty string
+# #   if (excludeAnimals && excludeAnimals.trim() !== '') {
+# #     // Convert comma-separated excludeAnimals string to an array
+# #     const excludeAnimalsArray = excludeAnimals.split(',');
+
+# #     // Generate the LIKE pattern for each animal to be excluded
+# #     const excludePatterns = excludeAnimalsArray.map((animal) => `%${animal.trim()}%`);
+# #     console.log('Exclude Patterns:', excludePatterns);
+
+# #     // Query to fetch 6 random ImageURLs from the animals table excluding specific animals
+# #     const sqlQuery = `SELECT ImageURL FROM animals WHERE AnimalName NOT LIKE ? AND AnimalName NOT LIKE ? AND AnimalName NOT LIKE ? AND AnimalName NOT LIKE ? AND AnimalName NOT LIKE ? AND AnimalName NOT LIKE ? ORDER BY RAND() LIMIT 6`;
+
+# #     const values = [
+# #       excludePatterns[0],
+# #       excludePatterns[1],
+# #       excludePatterns[2],
+# #       excludePatterns[3],
+# #       excludePatterns[4],
+# #       excludePatterns[5]
+# #     ];
+
+# #     connection.query(sqlQuery, values, (err, results) => {
+# #       if (err) {
+# #         console.error('Error executing SQL query:', err);
+# #         res.status(500).json({ error: 'Internal Server Error' });
+# #       } else {
+# #         const imageUrlsArray = results.map((row) => row.ImageURL);
+# #         console.log('Returned 6 pictures:', imageUrlsArray);
+# #         res.json(imageUrlsArray);
+# #       }
+# #     });
+# #   } else {
+# #     // If excludeAnimals is not provided or empty, fetch 6 random ImageURLs as before
+# #     const sqlQuery = 'SELECT ImageURL FROM animals ORDER BY RAND() LIMIT 6';
+
+# #     connection.query(sqlQuery, (err, results) => {
+# #       if (err) {
+# #         console.error('Error executing SQL query:', err);
+# #         res.status(500).json({ error: 'Internal Server Error' });
+# #       } else {
+# #         const imageUrlsArray = results.map((row) => row.ImageURL);
+# #         console.log('Returned 6 pictures:', imageUrlsArray);
+# #         res.json(imageUrlsArray);
+# #       }
+# #     });
+# #   }
+# # });
+
+  
+  
+  
+  
+
+# # app.listen(port, () => {
+# #   console.log(`Server listening on port ${port}`);
+# # });
+
+# # can you help me fix it ? 
+# # this is what I get:
+# # Received request for specific animals: Alligator undefined
+# # Received request for specific animals: undefined Mouse
+# # Received request for random animals
+# # Exclude animals: https://mixit-bucket.s3.amazonaws.com/animals/chicken.jpeg,https://mixit-bucket.s3.amazonaws.com/animals/wasp.jpeg,https://mixit-bucket.s3.amazonaws.com/animals/bear.jpeg,https://mixit-bucket.s3.amazonaws.com/animals/turtle.jpeg
+# # Exclude Patterns: [
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/chicken.jpeg%',
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/wasp.jpeg%',
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/bear.jpeg%',
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/turtle.jpeg%'
+# # ]
+# # Returned 6 pictures: [
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/alligator.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/lion.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/horse.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/ant.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/frog.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/turtle.jpeg'
+# # ]
+# # Received request for random animals
+# # Exclude animals: https://mixit-bucket.s3.amazonaws.com/animals/alligator.jpeg,https://mixit-bucket.s3.amazonaws.com/animals/lion.jpeg,https://mixit-bucket.s3.amazonaws.com/animals/horse.jpeg,https://mixit-bucket.s3.amazonaws.com/animals/ant.jpeg,https://mixit-bucket.s3.amazonaws.com/animals/frog.jpeg,https://mixit-bucket.s3.amazonaws.com/animals/turtle.jpeg
+# # Exclude Patterns: [
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/alligator.jpeg%',
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/lion.jpeg%',
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/horse.jpeg%',
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/ant.jpeg%',
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/frog.jpeg%',
+# #   '%https://mixit-bucket.s3.amazonaws.com/animals/turtle.jpeg%'
+# # ]
+# # Returned 6 pictures: [
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/ant.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/lion.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/mouse.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/horse.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/wasp.jpeg',
+# #   'https://mixit-bucket.s3.amazonaws.com/animals/chicken.jpeg'
+# # ]
+
+
+
+
+
+
+
+
+
+
+#  6 mixeded + UI + prints of animal names that were clicked 
+
+# import { Component, OnDestroy } from '@angular/core';
+# import { Platform } from '@ionic/angular';
+# import { NavController } from '@ionic/angular';
+# import { HttpClient } from '@angular/common/http';
+# import { delay, forkJoin, of, Observable} from 'rxjs';
+# import { switchMap } from 'rxjs/operators';
+# import { map } from 'rxjs/operators';
+
+
+# interface AnimalData {
+#   FirstAnimal: string;
+#   SecondAnimal: string;
+#   ImageURL: string;
+#   FirstAnimalURL: string; // Add this property for the specific animal URL
+#   SecondAnimalURL: string; // Add this property for the specific animal URL
+# }
+
+
+# @Component({
+#   selector: 'app-game',
+#   templateUrl: 'game.page.html',
+#   styleUrls: ['game.page.scss'],
+# })
+# export class GamePage implements OnDestroy {
+#   imageUrls: AnimalData[] = [];
+#   currentIndex: number = 0;
+#   displayDuration: number = 7000; // 7 seconds
+#   finalScore: number = 0;
+#   playerName: string = '';
+#   timer: any;
+#   remainingTime: number = 7; // 7 seconds
+#   countdownInterval: any;
+#   randomAnimalUrls: string[] = [];
+#   randomAnimalsFetched: boolean = false;
+#   selectedAnimalIndex: number[] = []; // Store the indices of the selected animal images
+#   selectedAnimalImages: HTMLImageElement[] = [];
+#   userPicks: string[] = [];
+#   score: number = 0;
+  
+#   handleImageClick() {
+#     console.log('Clicked on an animal image');
+#   }
+  
+#   handleImageClickExtractAnimalName(event: Event): void {
+#     // Get the clicked element
+#     const clickedImage = event.target as HTMLImageElement;
+  
+#     // Extract the animal name from the clicked image's URL
+#     const imageUrl = clickedImage.src;
+#     this.extractAnimalNameFromUrl(imageUrl).subscribe((animalName) => {
+#       console.log('Clicked on image:', animalName);
+#     });
+#   }
+
+#   extractAnimalNameFromUrl(imageUrl: string): Observable<string> {
+#     // Extract the animal name from the image URL
+#     const startIndex = imageUrl.lastIndexOf('/') + 1;
+#     const endIndex = imageUrl.lastIndexOf('.');
+#     const animalName = imageUrl.substring(startIndex, endIndex);
+#     return of(animalName);
+#   }
+
+#   // handleUserPick(pickedAnimalUrl: string): void {
+#   //   console.log('Enrered handleUserPick function');
+
+#   //   // Fetch the animal name from the server based on the pickedAnimalUrl
+#   //   this.getAnimalNameFromUrl(pickedAnimalUrl).subscribe(
+#   //     (animalName) => {
+#   //       console.log('User picked:', animalName);
+  
+#   //       // Convert animal names to lowercase for case-insensitive comparison
+#   //       const firstAnimal = this.imageUrls[this.currentIndex].FirstAnimal.toLowerCase();
+#   //       const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal.toLowerCase();
+#   //       const pick = animalName.toLowerCase();
+  
+#   //       // Check if the user's pick is correct
+#   //       if (pick === firstAnimal || pick === secondAnimal) {
+#   //         this.score += 10; // Increment the score by 10 for each correct pick
+#   //         this.updateScoreDisplay(); // Update the displayed score
+#   //       }
+  
+#   //       // Proceed to the next picture
+#   //       this.displayNextPicture();
+#   //     },
+#   //     (error) => {
+#   //       console.error('Failed to fetch animal name:', error);
+#   //     }
+#   //   );
+#   // }
+
+
+
+
+#   constructor(
+#     private platform: Platform,
+#     private navCtrl: NavController,
+#     private http: HttpClient
+#   ) {
+#     this.platform.ready().then(() => {
+#       this.startGame();
+#     });
+#   }
+
+#   ngOnDestroy() {
+#     clearInterval(this.countdownInterval);
+#   }
+
+
+#   // Updated fetchRandomAnimals() function
+# fetchRandomAnimals() {
+#   // Create a comma-separated string of random animal names to exclude from the query
+#   const excludeAnimals = this.randomAnimalUrls.join(',');
+
+#   // Fetch random animal image URLs from the server and pass the excludeAnimals parameter
+#   this.http.get<string[]>(`http://localhost:3333/randomAnimals?excludeAnimals=${encodeURIComponent(excludeAnimals)}`).subscribe(
+#     (imageUrls: string[]) => {
+#       // Ensure we have at least 4 new random animal URLs
+#       const additionalRandomURLs = this.getRandomUniqueElements(imageUrls, 4 - this.randomAnimalUrls.length);
+#       this.randomAnimalUrls.push(...additionalRandomURLs);
+
+#       // Shuffle the array before displaying the images
+#       this.randomAnimalUrls = this.shuffleArray(this.randomAnimalUrls);
+
+#       // Check if we have enough URLs to display
+#       if (this.randomAnimalUrls.length === 6) {
+#         this.displayRandomAnimals();
+#       }
+#     },
+#     (error) => {
+#       console.error('Failed to fetch random animal images:', error);
+#       alert('Failed to fetch random animal images. Please try again.');
+#     }
+#   );
+# }
+
+
+#   startGame() {
+#     this.finalScore = 0;
+#     this.playerName = '';
+#     this.timer = null;
+#     this.remainingTime = 5;
+#     this.countdownInterval = null;
+#     this.fetchRandomAnimals(); // Make sure this line is correct
+
+  
+#     // Fetch mixed animal image URLs from the server
+#     const mixedAnimalURLs$ = this.http.get<AnimalData[]>('http://localhost:3333/mixedAnimal');
+
+#     // Fetch random animal image URLs from the server
+#     const randomAnimalURLs$ = this.http.get<string[]>('http://localhost:3333/randomAnimals');
+
+#     // Use forkJoin to make parallel API calls
+#     forkJoin([mixedAnimalURLs$, randomAnimalURLs$]).subscribe(
+#       ([mixedAnimalURLs, randomAnimalURLs]: [AnimalData[], string[]]) => {
+#         this.imageUrls = mixedAnimalURLs;
+#         this.randomAnimalUrls = randomAnimalURLs;
+
+#         this.updateRandomAnimals().subscribe(() => {
+#           // Start displaying images
+#           this.displayRandomAnimals();
+#         });
+#       },
+#       (error) => {
+#         console.error('Failed to fetch data:', error);
+#         alert('Failed to fetch data. Please try again.');
+#       }
+#     );
+#   }
+  
+  
+
+
+#   // Updated displayRandomAnimals() function
+#   displayRandomAnimals() {
+#     clearTimeout(this.timer);
+#     clearInterval(this.countdownInterval);
+
+#     this.resetUI(); // Reset the UI before displaying new specific animal images
+  
+#     // Check if currentIndex is within bounds
+#     if (this.currentIndex < this.imageUrls.length) {
+#       const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+#       this.displayRandomImage(imageUrl);
+  
+#       // Display the specific animal images for the current mixedAnimal picture
+#       const specificAnimalURLs = [
+#         this.imageUrls[this.currentIndex].FirstAnimalURL,
+#         this.imageUrls[this.currentIndex].SecondAnimalURL
+#       ];
+  
+#       if (this.randomAnimalUrls.length < 6) {
+#         // Fetch 4 random animal image URLs to ensure we have enough for the next picture
+#         this.fetchRandomAnimals();
+#       } else {
+#         // Shuffle the array before displaying the images
+#         this.randomAnimalUrls = this.shuffleArray(this.randomAnimalUrls);
+  
+#         // Display the images using the shuffled URLs
+#         for (let i = 0; i < this.randomAnimalUrls.length; i++) {
+#           const animalImageElement = document.getElementById(`randomAnimalImage${i}`) as HTMLImageElement;
+#           if (animalImageElement) {
+#             animalImageElement.src = this.randomAnimalUrls[i];
+#           }
+#         }
+  
+#         this.displaySpecificAnimals(specificAnimalURLs, imageUrl); // Display specific animal images
+  
+#         // Start the countdown
+#         this.remainingTime = 7;
+#         this.countdownInterval = setInterval(() => {
+#           this.remainingTime--;
+#           if (this.remainingTime === 0) {
+#             clearInterval(this.countdownInterval);
+#             this.currentIndex++; // Move to the next image
+  
+#             // Call updateRandomAnimals() to update the mixed picture and random animal pictures
+#             this.updateRandomAnimals().subscribe(() => {
+#               this.displayRandomAnimals(); // Call recursively with the updated images
+#             });
+#           }
+#         }, 1000);
+#       }
+#     } else {
+#       // All images have been displayed
+#       this.finishGame();
+#     }
+#   }
+  
+#   updateScoreDisplay() {
+#     const scoreElement = document.getElementById('score') as HTMLElement;
+#     if (scoreElement) {
+#       scoreElement.textContent = `Score: ${this.score}`;
+#     }
+#   }
+
+
+
+  
+#   updateRandomAnimals(): Observable<any> {
+#     const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+#     const firstAnimal = this.imageUrls[this.currentIndex].FirstAnimal;
+#     const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal;
+  
+#     console.log('Updating random animals:');
+#     console.log('First Animal:', firstAnimal);
+#     console.log('Second Animal:', secondAnimal);
+  
+#     // Fetch specific animal image URLs for FirstAnimal and SecondAnimal separately
+#     const specificAnimalFirst$ = this.http.get<string[]>(`http://localhost:3333/specificAnimals?firstAnimal=${encodeURIComponent(firstAnimal)}`);
+#     const specificAnimalSecond$ = this.http.get<string[]>(`http://localhost:3333/specificAnimals?secondAnimal=${encodeURIComponent(secondAnimal)}`);
+  
+#     // Fetch random animal image URLs excluding FirstAnimal and SecondAnimal
+#     const excludeAnimals = `${firstAnimal},${secondAnimal}`;
+#     const randomAnimalURLs$ = this.http.get<string[]>(`http://localhost:3333/randomAnimals?excludeAnimals=${encodeURIComponent(excludeAnimals)}`);
+  
+#     // Log the SQL query for the specific animal FirstAnimal
+#     specificAnimalFirst$.subscribe((specificAnimalFirstUrls) => {
+#       //console.log('SQL Query for First Animal:', specificAnimalFirstUrls);
+#     });
+  
+#     // Log the SQL query for the specific animal SecondAnimal
+#     specificAnimalSecond$.subscribe((specificAnimalSecondUrls) => {
+#       //console.log('SQL Query for Second Animal:', specificAnimalSecondUrls);
+#     });
+
+    
+  
+#     return forkJoin([specificAnimalFirst$, specificAnimalSecond$, randomAnimalURLs$]).pipe(
+#       switchMap(([specificAnimalFirst, specificAnimalSecond, randomAnimalURLs]: [string[], string[], string[]]) => {
+#         console.log('Specific Animal URLs for First Animal:', specificAnimalFirst);
+#         console.log('Specific Animal URLs for Second Animal:', specificAnimalSecond);
+#         //console.log('Random Animal URLs:', randomAnimalURLs);
+  
+#         // Shuffle the arrays to get random elements
+#         specificAnimalFirst = this.shuffleArray(specificAnimalFirst);
+#         specificAnimalSecond = this.shuffleArray(specificAnimalSecond);
+#         randomAnimalURLs = this.shuffleArray(randomAnimalURLs);
+  
+#         // Ensure we have exactly 2 specific animal URLs for each FirstAnimal and SecondAnimal
+#         const selectedSpecificURLs = [...specificAnimalFirst.slice(0, 2), ...specificAnimalSecond.slice(0, 2)];
+  
+#         // Include the specific animal URLs in the random animal URLs array
+#         const selectedRandomURLs = [...selectedSpecificURLs, ...this.getRandomUniqueElements(randomAnimalURLs, 4)];
+#         const allAnimalURLs = [...selectedSpecificURLs, ...selectedRandomURLs];
+#         this.displaySpecificAnimals(allAnimalURLs, imageUrl);
+  
+#         // Update the randomAnimalUrls array with the new URLs
+#         this.randomAnimalUrls = selectedRandomURLs;
+  
+#         // Return an observable that resolves when the data is updated
+#         return of(null);
+#       })
+#     );
+#   }
+  
+  
+
+#   getRandomUniqueElements(array: any[], count: number): any[] {
+#     // Function to get 'count' random unique elements from the array
+#     if (array.length <= count) {
+#       return array;
+#     }
+  
+#     const result: any[] = [];
+#     const indices: Set<number> = new Set();
+  
+#     while (indices.size < count) {
+#       const index = Math.floor(Math.random() * array.length);
+#       if (!indices.has(index)) {
+#         indices.add(index);
+#         result.push(array[index]);
+#       }
+#     }
+  
+#     return result;
+#   }
+  
+
+#   shuffleArray(array: any[]): any[] {
+#     for (let i = array.length - 1; i > 0; i--) {
+#       const j = Math.floor(Math.random() * (i + 1));
+#       [array[i], array[j]] = [array[j], array[i]];
+#     }
+#     return array;
+#   }
+  
+  
+  
+  
+#   displaySpecificAnimals(specificAnimalURLs: string[], mixedAnimalImageUrl: string) {
+
+#     console.log('Displaying specific animals...');
+#     console.log('Mixed Animal URL:', mixedAnimalImageUrl);
+#     //console.log('Specific Animal URLs:', specificAnimalURLs);
+#     // Display the mixedAnimal image
+#     this.displayRandomImage(mixedAnimalImageUrl);
+  
+#     // Display the specific animal images below the mixedAnimal image
+#     const specificAnimalImageElements = document.getElementsByClassName('specific-animal-image');
+  
+#     const specificAnimalImageArray = Array.from(specificAnimalImageElements) as HTMLImageElement[];
+#     for (let i = 0; i < specificAnimalImageArray.length; i++) {
+#       if (i < 2 && specificAnimalURLs[i]) {
+#         specificAnimalImageArray[i].src = specificAnimalURLs[i];
+#       } else {
+#         specificAnimalImageArray[i].src = this.randomAnimalUrls[i - 2]; // Set the remaining images to random animals
+#       }
+#     }  
+# }
+  
+
+
+# getAnimalNameFromUrl(imageUrl: string): Observable<string> {
+#   // Send a request to the server endpoint to get the animal name based on the image URL
+#   return this.http.get<{ animalName: string }>('http://localhost:3333/animalName', {
+#     params: { imageUrl: imageUrl }
+#   }).pipe(
+#     map((response) => response.animalName)
+#   );
+# }
+ 
+
+#   onAnimalImageClick(event: Event) {
+#     // Prevent the default behavior of the click event
+#     event.preventDefault();
+  
+#     // Get the clicked element
+#     const clickedImage = event.target as HTMLImageElement;
+  
+#     // Check if the clicked image is already selected
+#     const isImageSelected = this.selectedAnimalImages.includes(clickedImage);
+  
+#     // Check if the user has already selected two images
+#     if (this.selectedAnimalImages.length < 2 || isImageSelected) {
+#       // Toggle the "clicked" class to apply/remove the colorful frame
+#       clickedImage.classList.toggle('clicked');
+  
+#       // Add or remove the clicked image from the selectedAnimalImages array
+#       if (isImageSelected) {
+#         this.selectedAnimalImages = this.selectedAnimalImages.filter(
+#           (img) => img !== clickedImage
+#         );
+#       } else {
+#         this.selectedAnimalImages.push(clickedImage);
+#       }
+#     }
+#   }
+
+  
+
+#   displayRandomImage(imageUrl: string) {
+#     const animalImageElement = document.getElementById(
+#       'animalImage'
+#     ) as HTMLImageElement;
+#     if (animalImageElement) {
+#       animalImageElement.src = imageUrl;
+#     }
+#   }
+
+#   getCurrentImageUrl(): string {
+#     if (this.imageUrls.length > 0) {
+#       return this.imageUrls[this.currentIndex].ImageURL;
+#     } else {
+#       return ''; // Return an empty string if no image URLs are available
+#     }
+#   }
+
+#   resetUI() {
+#     // Remove the "clicked" class from all animal images
+#     const animalImages = document.querySelectorAll('.additional-animal-image, .animal-image');
+#     animalImages.forEach((img) => img.classList.remove('clicked'));
+  
+#     // Reset the selectedAnimalImages array
+#     this.selectedAnimalImages = [];
+#   }
+
+#   nextPicture() {
+#     this.resetUI(); // Reset the UI before moving to the next picture
+  
+#     this.displayNextPicture(); // Call displayNextPicture() to show the next mixed animal picture
+  
+#     // Update random animal pictures for the next mixed animal picture
+#     this.updateRandomAnimals().subscribe(() => {
+#       this.displayRandomAnimals();
+#     });
+#   }
+  
+#   displayNextPicture() {
+#     // Clear the countdown interval to prevent double counting
+#     clearInterval(this.countdownInterval);
+#     this.remainingTime = 7;
+  
+#     // Check if currentIndex is within bounds
+#     if (this.currentIndex < this.imageUrls.length - 1) {
+#       this.currentIndex++; // Move to the next image
+#     } else {
+#       // Call updateRandomAnimals() when the user reaches the end of all images
+#       this.currentIndex = 0; // Reset the index
+#     }
+  
+#     // Get the next image URL
+#     const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+#     this.displayRandomImage(imageUrl);
+  
+#     // Start the countdown
+#     this.countdownInterval = setInterval(() => {
+#       this.remainingTime--;
+#       if (this.remainingTime === 0) {
+#         clearInterval(this.countdownInterval);
+#         this.updateRandomAnimals().subscribe(() => {
+#           this.displayRandomAnimals(); // Call recursively with the updated images
+#         });
+#       }
+#     }, 1000);
+#   }
+  
+  
+  
+
+#   finishGame() {
+#     // Logic for finishing the game
+#   }
+
+#   seeTopTen() {
+#     this.navCtrl.navigateForward('/top-ten');
+#   }
+
+
+#   private sendScore() {
+#     // Prepare the data to be sent
+#     const data = { name: this.playerName, score: this.finalScore };
+
+#     // Send a POST request to your API endpoint
+#     //this.http.post('http://gamedb.cbgja1mg2wpp.us-east-1.rds.amazonaws.com/score_table', data).subscribe(
+#     this.http.post('http://localhost:3333/score_table', data).subscribe(
+#       () => {
+#         // Handle the successful response
+#         console.log('Score saved successfully');
+#         // this.navCtrl.navigateBack('/home');
+#         this.navCtrl.navigateBack('/top-ten');
+#       },
+#       (error) => {
+#         // Handle errors
+#         console.error('Failed to save score:', error);
+#         const errorMessage = error.error?.error || 'Failed to save score. Please try again.';
+#         alert('Failed to save score. Please try again: ' + errorMessage);
+#       }
+#     );
+#   }
+
+  
+# } -->
+
+
+
+
+
+
+# #####
+# import { Component, OnDestroy } from '@angular/core';
+# import { Platform } from '@ionic/angular';
+# import { NavController } from '@ionic/angular';
+# import { HttpClient } from '@angular/common/http';
+# import { delay, forkJoin, of, Observable} from 'rxjs';
+# import { switchMap } from 'rxjs/operators';
+# import { map } from 'rxjs/operators';
+# import { ActivatedRoute } from '@angular/router'; // Correct import statement
+
+
+
+# interface AnimalData {
+#   FirstAnimal: string;
+#   SecondAnimal: string;
+#   ImageURL: string;
+#   FirstAnimalURL: string; // Add this property for the specific animal URL
+#   SecondAnimalURL: string; // Add this property for the specific animal URL
+# }
+# interface FoodData {
+#   FirstFood: string;
+#   SecondFood: string;
+#   ImageURL: string;
+#   FirstFoodURL: string; // Add this property for the specific animal URL
+#   SecondFoodURL: string; // Add this property for the specific animal URL
+# }
+
+
+
+
+# @Component({
+#   selector: 'app-game',
+#   templateUrl: 'game.page.html',
+#   styleUrls: ['game.page.scss'],
+# })
+# export class GamePage implements OnDestroy {
+#   imageUrls: AnimalData[] | FoodData[] = [];
+#   currentIndex: number = 0;
+#   displayDuration: number = 10000; // 7 seconds
+#   finalScore: number = 0;
+#   playerName: string = '';
+#   timer: any;
+#   remainingTime: number = 10; // 7 seconds
+#   countdownInterval: any;
+#   randomObjectUrls: string[] = [];
+#   selectedObjectImages: HTMLImageElement[] = [];
+#   userPicks: string[] = [];
+#   score: number = 0;
+#   userHasSelected: boolean = false;
+#   canPickPictures: boolean = true;
+#   gameFinished: boolean = false;
+#   scorePrompted: boolean = false;
+#   lives : number = 10;
+
+#   category: string = '';
+
+  
+
+#   constructor(
+#     private platform: Platform,
+#     private navCtrl: NavController,
+#     private http: HttpClient,
+#     private route: ActivatedRoute // Inject ActivatedRoute
+#   ) {
+#     this.platform.ready().then(() => {
+#       this.startGame();
+#     });
+#   }
+#   ngOnInit() {
+#     this.route.paramMap.subscribe((params: any) => { // Specify the type of 'params'
+#       this.category = params.get('category');
+#       console.log('Selected category:', this.category);
+#     });
+#   }
+
+#   ngOnDestroy() {
+#     clearInterval(this.countdownInterval);
+#   }
+
+
+#   // Updated fetchRandomAnimals() function
+#   fetchRandomObjects() {
+#     // Create a comma-separated string of random animal names to exclude from the query
+#     const excludeObjects = this.randomObjectUrls.join(',');
+  
+#     // Check if excludeAnimals is empty, and if so, set it to an empty string
+#     const encodedExcludeAnimals = excludeObjects ? encodeURIComponent(excludeObjects) : '';
+  
+#     // Fetch random animal image URLs from the server and pass the excludeAnimals parameter
+#     this.http.get<string[]>(`http://localhost:3333/randomAnimals?excludeAnimals=${encodedExcludeAnimals}&category=${encodeURIComponent(this.category)}`).subscribe(
+#       (imageUrls: string[]) => {
+#         // Ensure we have at least 4 new random animal URLs
+#         const additionalRandomURLs = this.getRandomUniqueElements(imageUrls, 4 - this.randomObjectUrls.length);
+#         this.randomObjectUrls.push(...additionalRandomURLs);
+  
+#         // Shuffle the array before displaying the images
+#         this.randomObjectUrls = this.shuffleArray(this.randomObjectUrls);
+  
+#         // Check if we have enough URLs to display
+#         if (this.randomObjectUrls.length === 6) {
+#           this.displayRandomAnimals();
+#         }
+#       },
+#       (error) => {
+#         console.error('Failed to fetch random animal images:', error);
+#         alert('Failed to fetch random animal images. Please try again.');
+#       }
+#     );
+#   }
+  
+
+
+#   startGame() {
+#     this.finalScore = 0;
+#     this.playerName = '';
+#     this.timer = null;
+#     this.remainingTime = 5;
+#     this.countdownInterval = null;
+#     this.fetchRandomObjects(); // Make sure this line is correct
+#     this.gameFinished = false;
+#     this.scorePrompted = false;
+
+
+  
+#     // Fetch mixed animal image URLs from the server
+#     const mixedAnimalURLs$ = this.http.get<AnimalData[]>(`http://localhost:3333/mixedAnimal?category=${encodeURIComponent(this.category)}`);
+#     console.log("mixedAnimalURLs :" + mixedAnimalURLs$)
+#     // Fetch random animal image URLs from the server
+#     const randomAnimalURLs$ = this.http.get<string[]>(`http://localhost:3333/randomAnimals?category=${encodeURIComponent(this.category)}`);
+#     console.log("randomAnimalURLs :" + randomAnimalURLs$)
+
+#     // Use forkJoin to make parallel API calls
+#     forkJoin([mixedAnimalURLs$, randomAnimalURLs$]).subscribe(
+#       ([mixedAnimalURLs, randomAnimalURLs]: [AnimalData[], string[]]) => {
+#         this.imageUrls = mixedAnimalURLs;
+#         this.randomObjectUrls = randomAnimalURLs;
+
+#         this.updateRandomAnimals().subscribe(() => {
+#           // Start displaying images
+#           this.displayRandomAnimals();
+#         });
+#       },
+#       (error) => {
+#         console.error('Failed to fetch data:', error);
+#         alert('Failed to fetch data. Please try again.');
+#       }
+#     );
+#   }
+  
+  
+
+
+#   // Updated displayRandomAnimals() function
+#   displayRandomAnimals() {
+#     console.log("displayRandomAnimals")
+#     clearTimeout(this.timer);
+#     clearInterval(this.countdownInterval);
+
+#     this.resetUI(); // Reset the UI before displaying new specific animal images
+  
+#     // Check if currentIndex is within bounds
+#     if (this.currentIndex < this.imageUrls.length) {
+#       console.log("in loop of displayRandomAnimals")
+#       const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+#       this.displayRandomImage(imageUrl);
+  
+#       // Display the specific animal images for the current mixedAnimal picture
+#       const specificAnimalURLs = [
+#         this.imageUrls[this.currentIndex].FirstAnimalURL,
+#         this.imageUrls[this.currentIndex].SecondAnimalURL
+#       ];
+  
+#       if (this.randomObjectUrls.length < 6) {
+#         // Fetch 4 random animal image URLs to ensure we have enough for the next picture
+#         this.fetchRandomObjects();
+#       } else {
+#         // Shuffle the array before displaying the images
+#         this.randomObjectUrls = this.shuffleArray(this.randomObjectUrls);
+  
+#         // Display the images using the shuffled URLs
+#         for (let i = 0; i < this.randomObjectUrls.length; i++) {
+#           const animalImageElement = document.getElementById(`randomAnimalImage${i}`) as HTMLImageElement;
+#           if (animalImageElement) {
+#             animalImageElement.src = this.randomObjectUrls[i];
+#           }
+#         }
+  
+#         this.displaySpecificAnimals(specificAnimalURLs, imageUrl); // Display specific animal images
+  
+#         // Start the countdown
+#   this.remainingTime = 10;
+#   this.countdownInterval = setInterval(() => {
+#     this.remainingTime--;
+#     if (this.remainingTime === 0) {
+#       clearInterval(this.countdownInterval);
+#       this.currentIndex++; // Move to the next image
+
+#       // Check if the user made a correct pick
+#       const firstAnimal = this.imageUrls[this.currentIndex].FirstAnimal.toLowerCase();
+#       const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal.toLowerCase();
+#       const pickedAnimal1 = this.userPicks[0]?.toLowerCase();
+#       const pickedAnimal2 = this.userPicks[1]?.toLowerCase();
+
+#       if (pickedAnimal1 === firstAnimal || pickedAnimal1 === secondAnimal) {
+#         this.score += 10;
+#       }
+
+#       if (pickedAnimal2 === firstAnimal || pickedAnimal2 === secondAnimal) {
+#         this.score += 10;
+#       }
+
+#       // Update the score display
+#       this.updateScoreDisplay();
+
+#       // Clear the userPicks array for the next iteration
+#       this.userPicks = [];
+
+#       // Call updateRandomAnimals() to update the mixed picture and random animal pictures
+#       this.updateRandomAnimals().subscribe(() => {
+#         this.displayRandomAnimals(); // Call recursively with the updated images
+#       });
+#     }
+#   }, 1000);
+# }
+#     } else {
+    
+#       // All images have been displayed
+#       this.finishGame();
+#     }
+#   }
+  
+#   updateScoreDisplay() {
+#     const scoreElement = document.getElementById('score') as HTMLElement;
+#     if (scoreElement) {
+#       scoreElement.textContent = `Score: ${this.score}`;
+#     }
+#   }
+
+
+
+  
+#   updateRandomAnimals(): Observable<any> {
+#     const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+#     console.log('imageUrl:', imageUrl);
+#     console.log('imageUrls:', this.imageUrls[this.currentIndex]);
+    
+    
+#     const firstAnimal = this.imageUrls[this.currentIndex]["FirstFood"];
+#     const specificAnimalFirst$ = this.http.get<string[]>(`http://localhost:3333/specificAnimals?category=${encodeURIComponent(this.category)}&firstAnimal=${encodeURIComponent(firstAnimal)}`);
+
+#     const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal;
+  
+#     console.log('Updating random' , this.category ,":");
+#     console.log('First Animal:', firstAnimal);
+#     console.log('Second Animal:', secondAnimal);
+  
+#     // Fetch specific animal image URLs for FirstAnimal and SecondAnimal separately
+#     //const specificAnimalFirst$ = this.http.get<string[]>(`http://localhost:3333/specificAnimals?category=${encodeURIComponent(this.category)}&firstAnimal=${encodeURIComponent(firstAnimal)}`);
+#     const specificAnimalSecond$ = this.http.get<string[]>(`http://localhost:3333/specificAnimals?category=${encodeURIComponent(this.category)}&secondAnimal=${encodeURIComponent(secondAnimal)}`);
+  
+#     // Fetch random animal image URLs excluding FirstAnimal and SecondAnimal
+#     const excludeAnimals = `${firstAnimal},${secondAnimal}`;
+#     const randomAnimalURLs$ = this.http.get<string[]>(`http://localhost:3333/randomAnimals?category=${encodeURIComponent(this.category)}&excludeAnimals=${encodeURIComponent(excludeAnimals)}`);
+  
+#     // Log the SQL query for the specific animal FirstAnimal
+#     specificAnimalFirst$.subscribe((specificAnimalFirstUrls) => {
+#       //console.log('SQL Query for First Animal:', specificAnimalFirstUrls);
+#     });
+  
+#     // Log the SQL query for the specific animal SecondAnimal
+#     specificAnimalSecond$.subscribe((specificAnimalSecondUrls) => {
+#       //console.log('SQL Query for Second Animal:', specificAnimalSecondUrls);
+#     });
+
+    
+  
+#     return forkJoin([specificAnimalFirst$, specificAnimalSecond$, randomAnimalURLs$]).pipe(
+#       switchMap(([specificAnimalFirst, specificAnimalSecond, randomAnimalURLs]: [string[], string[], string[]]) => {
+#         console.log('Specific Animal URLs for First Animal:', specificAnimalFirst);
+#         console.log('Specific Animal URLs for Second Animal:', specificAnimalSecond);
+#         //console.log('Random Animal URLs:', randomAnimalURLs);
+  
+#         // Shuffle the arrays to get random elements
+#         specificAnimalFirst = this.shuffleArray(specificAnimalFirst);
+#         specificAnimalSecond = this.shuffleArray(specificAnimalSecond);
+#         randomAnimalURLs = this.shuffleArray(randomAnimalURLs);
+  
+#         // Ensure we have exactly 2 specific animal URLs for each FirstAnimal and SecondAnimal
+#         const selectedSpecificURLs = [...specificAnimalFirst.slice(0, 2), ...specificAnimalSecond.slice(0, 2)];
+  
+#         // Include the specific animal URLs in the random animal URLs array
+#         const selectedRandomURLs = [...selectedSpecificURLs, ...this.getRandomUniqueElements(randomAnimalURLs, 4)];
+#         const allAnimalURLs = [...selectedSpecificURLs, ...selectedRandomURLs];
+#         this.displaySpecificAnimals(allAnimalURLs, imageUrl);
+  
+#         // Update the randomAnimalUrls array with the new URLs
+#         this.randomObjectUrls = selectedRandomURLs;
+  
+#         // Return an observable that resolves when the data is updated
+#         return of(null);
+#       })
+#     );
+#   }
+  
+  
+
+#   getRandomUniqueElements(array: any[], count: number): any[] {
+#     // Function to get 'count' random unique elements from the array
+#     if (array.length <= count) {
+#       return array;
+#     }
+  
+#     const result: any[] = [];
+#     const indices: Set<number> = new Set();
+  
+#     while (indices.size < count) {
+#       const index = Math.floor(Math.random() * array.length);
+#       if (!indices.has(index)) {
+#         indices.add(index);
+#         result.push(array[index]);
+#       }
+#     }
+  
+#     return result;
+#   }
+  
+
+#   shuffleArray(array: any[]): any[] {
+#     for (let i = array.length - 1; i > 0; i--) {
+#       const j = Math.floor(Math.random() * (i + 1));
+#       [array[i], array[j]] = [array[j], array[i]];
+#     }
+#     return array;
+#   }
+  
+  
+  
+  
+#   displaySpecificAnimals(specificAnimalURLs: string[], mixedAnimalImageUrl: string) {
+
+#     console.log('Displaying specific', this.category ,'...');
+#     console.log('Mixed Animal URL:', mixedAnimalImageUrl);
+#     //console.log('Specific Animal URLs:', specificAnimalURLs);
+#     // Display the mixedAnimal image
+#     this.displayRandomImage(mixedAnimalImageUrl);
+  
+#     // Display the specific animal images below the mixedAnimal image
+#     const specificAnimalImageElements = document.getElementsByClassName('specific-animal-image');
+  
+#     const specificAnimalImageArray = Array.from(specificAnimalImageElements) as HTMLImageElement[];
+#     for (let i = 0; i < specificAnimalImageArray.length; i++) {
+#       if (i < 2 && specificAnimalURLs[i]) {
+#         specificAnimalImageArray[i].src = specificAnimalURLs[i];
+#       } else {
+#         specificAnimalImageArray[i].src = this.randomObjectUrls[i - 2]; // Set the remaining images to random animals
+#       }
+#     }  
+# }
+  
+
+
+# getAnimalNameFromUrl(imageUrl: string): Observable<string> {
+#   // Send a request to the server endpoint to get the animal name based on the image URL
+#   return this.http.get<{ animalName: string }>(`http://localhost:3333/animalName?category=${encodeURIComponent(this.category)}`, {
+#     params: { imageUrl: imageUrl }
+#   }).pipe(
+#     map((response) => response.animalName)
+#   );
+# }
+ 
+
+# onAnimalImageClick(event: Event, imageUrl: string) {
+#   // Prevent the default behavior of the click event
+#   event.preventDefault();
+
+#   // Check if the user has already selected two images
+#   if (this.userPicks.length < 2 || this.userPicks.includes(imageUrl)) {
+#     // Toggle the "clicked" class to apply/remove the colorful frame
+#     const clickedImage = event.target as HTMLImageElement;
+#     clickedImage.classList.toggle('clicked');
+
+#     // Add or remove the clicked image URL from the userPicks array
+#     if (this.userPicks.includes(imageUrl)) {
+#       this.userPicks = this.userPicks.filter((img) => img !== imageUrl);
+#     } else {
+#       this.userPicks.push(imageUrl);
+#     }
+
+#     // Check if the user has picked two images
+#     if (this.userPicks.length === 2) {
+#       // Stop the countdown interval and display the selected images for a short delay
+#       clearInterval(this.countdownInterval);
+#       this.displaySelectedImages();
+#       const delayDuration = 500; // Adjust the delay duration in milliseconds (e.g., 2000ms = 2 seconds)
+
+#       // Wait for the delay to finish before moving to the next iteration
+#       setTimeout(() => {
+#         this.currentIndex++; // Move to the next image
+
+#         // Check if the user made a correct pick
+#         const firstAnimal = this.imageUrls[this.currentIndex].FirstAnimal.toLowerCase();
+#         const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal.toLowerCase();
+#         const pickedAnimal1 = this.userPicks[0]?.toLowerCase();
+#         const pickedAnimal2 = this.userPicks[1]?.toLowerCase();
+
+#         if (pickedAnimal1 === firstAnimal || pickedAnimal1 === secondAnimal) {
+#           this.score += 10;
+#         }
+
+#         if (pickedAnimal2 === firstAnimal || pickedAnimal2 === secondAnimal) {
+#           this.score += 10;
+#         }
+
+#         // Update the score display
+#         this.updateScoreDisplay();
+
+#         // Clear the userPicks array for the next iteration
+#         this.userPicks = [];
+
+#         // Call updateRandomAnimals() to update the mixed picture and random animal pictures
+#         this.updateRandomAnimals().subscribe(() => {
+#           this.displayRandomAnimals(); // Call recursively with the updated images
+#         });
+
+#         // Move this line inside the code block
+#         console.log("this.score:" + this.score);
+#       }, delayDuration);
+#     }
+#   }
+# }
+
+  
+
+#   displayRandomImage(imageUrl: string) {
+#     const animalImageElement = document.getElementById(
+#       'animalImage'
+#     ) as HTMLImageElement;
+#     if (animalImageElement) {
+#       animalImageElement.src = imageUrl;
+#     }
+#   }
+
+#   handleImageClickExtractAnimalName(event: Event, imageUrl: string): void {
+#     // Prevent the default behavior of the click event
+#     event.preventDefault();
+  
+#     // Get the clicked element
+#     const clickedImage = event.target as HTMLImageElement;
+  
+#     // Extract the animal name from the clicked image's URL
+#     this.extractAnimalNameFromUrl(imageUrl).subscribe((animalName) => {
+#       console.log('Clicked on image:', animalName);
+  
+#       // Convert FirstAnimal and SecondAnimal to lowercase
+#       const firstAnimal = this.imageUrls[this.currentIndex].FirstAnimal.toLowerCase();
+#       const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal.toLowerCase();
+  
+#       // Check if animalName is equal to either FirstAnimal or SecondAnimal
+#       if (animalName.toLowerCase() === firstAnimal || animalName.toLowerCase() === secondAnimal) {
+#         console.log('Equality');
+#         this.score += 10;
+#       } else {
+#         console.log('Not equals to any');
+#         this.lives--;
+#         if (this.lives === 0) {
+#           alert('Game Over - You ran out of lives!');
+#           this.finishGame();
+#           return; // Exit the function to prevent further processing
+#         }
+#       }
+#     });
+#     if (this.currentIndex >= this.imageUrls.length)
+#       this.finishGame();
+  
+#     // Check if the user has already selected two images
+#     if (this.userPicks.length < 2 || this.userPicks.includes(imageUrl)) {
+#       // Toggle the "clicked" class to apply/remove the colorful frame
+#       clickedImage.classList.toggle('clicked');
+  
+#       // Add or remove the clicked image URL from the userPicks array
+#       if (this.userPicks.includes(imageUrl)) {
+#         this.userPicks = this.userPicks.filter((img) => img !== imageUrl);
+#       } else {
+#         this.userPicks.push(imageUrl);
+#       }
+  
+#       if (this.userPicks.length === 2) {
+#         // Stop the countdown interval and display the selected images for a short delay
+#         clearInterval(this.countdownInterval);
+#         this.displaySelectedImages();
+#         const delayDuration = 500; // Adjust the delay duration in milliseconds (e.g., 2000ms = 2 seconds)
+      
+#         // Wait for the delay to finish before moving to the next iteration
+#         setTimeout(() => {
+#           this.currentIndex++; // Move to the next image
+      
+#           // Check if the user made a correct pick
+#           const firstAnimal = this.imageUrls[this.currentIndex].FirstAnimal.toLowerCase();
+#           const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal.toLowerCase();
+#           const pickedAnimal1 = this.userPicks[0]?.toLowerCase();
+#           const pickedAnimal2 = this.userPicks[1]?.toLowerCase();
+
+      
+#           // Clear the userPicks array for the next iteration
+#           this.userPicks = [];
+      
+#           // Call updateRandomAnimals() to update the mixed picture and random animal pictures
+#           this.updateRandomAnimals().subscribe(() => {
+#             this.displayRandomAnimals(); // Call recursively with the updated images
+#           });
+      
+#           // Move this line inside the code block
+#           console.log("this.score:" + this.score);
+#         }, delayDuration);
+#       }
+#     }
+#   }
+  
+#   displaySelectedImages() {
+#     // Get the elements representing the selected images
+#     const selectedImageElements = document.querySelectorAll('.clicked') as NodeListOf<HTMLImageElement>;
+  
+#     // Set a class to indicate that the selected images should remain highlighted until the next iteration
+#     selectedImageElements.forEach((img) => img.classList.add('highlighted'));
+#   }
+  
+#   extractAnimalNameFromUrl(imageUrl: string): Observable<string> {
+#     // Extract the animal name from the image URL
+#     const startIndex = imageUrl.lastIndexOf('/') + 1;
+#     const endIndex = imageUrl.lastIndexOf('.');
+#     const animalName = imageUrl.substring(startIndex, endIndex);
+#     return of(animalName);
+#   }
+
+#   handleImageClick() {
+#     console.log('Clicked on an animal image');
+#   }
+
+#   getCurrentImageUrl(): string {
+#     if (this.imageUrls.length > 0) {
+#       return this.imageUrls[this.currentIndex].ImageURL;
+#     } else {
+#       return ''; // Return an empty string if no image URLs are available
+#     }
+#   }
+
+#   resetUI() {
+#     // Remove the "clicked" class from all animal images
+#     const animalImages = document.querySelectorAll('.additional-animal-image, .animal-image');
+#     animalImages.forEach((img) => img.classList.remove('clicked'));
+  
+#     // Reset the selectedAnimalImages array
+#     this.selectedObjectImages = [];
+#   }
+
+#   nextPicture() {
+#     this.resetUI(); // Reset the UI before moving to the next picture
+  
+#     this.displayNextPicture(); // Call displayNextPicture() to show the next mixed animal picture
+  
+#     // Update random animal pictures for the next mixed animal picture
+#     this.updateRandomAnimals().subscribe(() => {
+#       this.displayRandomAnimals();
+#     });
+#   }
+  
+#   displayNextPicture() {
+#     console.log("displayNextPicture")
+#     // Clear the countdown interval to prevent double counting
+#     clearInterval(this.countdownInterval);
+#     this.remainingTime = 10;
+  
+#     // Check if currentIndex is within bounds
+#     if (this.currentIndex < this.imageUrls.length - 1) {
+#       this.currentIndex++; // Move to the next image
+#     } 
+#     else {
+#       // Call updateRandomAnimals() when the user reaches the end of all images
+#       console.log("got here")
+#       this.finishGame(); // Reset the index
+#     }
+  
+#     // Get the next image URL
+#     const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+#     this.displayRandomImage(imageUrl);
+  
+#     // Start the countdown
+#     this.countdownInterval = setInterval(() => {
+#       this.remainingTime--;
+#       if (this.remainingTime === 0) {
+#         clearInterval(this.countdownInterval);
+#         this.updateRandomAnimals().subscribe(() => {
+#           this.displayRandomAnimals(); // Call recursively with the updated images
+#         });
+#       }
+#     }, 1000);
+#   }
+  
+  
+  
+
+#   finishGame() {
+#     this.gameFinished = true;
+    
+#     this.finalScore = this.score;
+#     if (!this.scorePrompted) {
+#       this.promptForScore();
+#     }
+#   }
+
+#   private promptForScore() {
+#     alert(`Your score: ${this.finalScore}`);
+#     if (!this.scorePrompted) {
+#       this.promptForName();
+#     }
+#     this.scorePrompted = true;
+#   }
+
+#   private promptForName() {
+#     const playerName = prompt('Enter your name:');
+#     if (!playerName) {
+#       return;
+#     }
+
+#     this.playerName = playerName;
+#     this.sendScore();
+#   }
+
+#   seeTopTen() {
+#     this.navCtrl.navigateForward('/top-ten');
+#   }
+
+
+#   private sendScore() {
+#     // Prepare the data to be sent
+#     const data = { name: this.playerName, score: this.finalScore };
+
+#     // Send a POST request to your API endpoint
+#     //this.http.post('http://gamedb.cbgja1mg2wpp.us-east-1.rds.amazonaws.com/score_table', data).subscribe(
+#     this.http.post('http://localhost:3333/score_table', data).subscribe(
+#       () => {
+#         // Handle the successful response
+#         console.log('Score saved successfully');
+#         // this.navCtrl.navigateBack('/home');
+#         this.navCtrl.navigateBack('/top-ten');
+#       },
+#       (error) => {
+#         // Handle errors
+#         console.error('Failed to save score:', error);
+#         const errorMessage = error.error?.error || 'Failed to save score. Please try again.';
+#         alert('Failed to save score. Please try again: ' + errorMessage);
+#       }
+#     );
+#   }
+
+  
+# }

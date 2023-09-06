@@ -1,0 +1,98 @@
+ion-grid {
+  ion-row {
+    ion-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+
+      img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        cursor: pointer;
+        margin-top: 0;
+      }
+
+      /* Remove the existing styles for ion-item and ion-button */
+
+      ion-item {
+        margin-top: 1rem;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+.score-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  
+}
+
+.timer {
+  font-size: 20px;
+  color: red;
+  
+}
+
+.image-container {
+  display: flex;
+  justify-content: center; /* Add this line to horizontally center the image */
+  align-items: flex-start; /* Add this line to align the image to the top */
+}
+
+.game-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: 360px;
+  height: 360px;
+}
+// .animal-images {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+// }
+
+// .animal-image {
+//   width: 100%;
+//   max-width: 100px;
+//   height: auto;
+//   cursor: pointer;
+//   margin-bottom: 10px;
+// }
+
+
+
+.animal-image {
+  width: 125px;
+  //max-width: 125px;
+  height: 100px;
+  //max-height: 125px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.animal-image.selected {
+  border: 2px solid orange;
+}
+
+p {
+  margin-right: 10%; /* Remove default margin */
+}
+
+// .body {
+//   margin-top: 0px;
+// }
+
+.ion-page can-go-back {
+  margin:0;
+}
+
+
+

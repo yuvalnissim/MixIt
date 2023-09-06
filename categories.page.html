@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pick Category</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card class="category-card" (click)="navigateToGamePage('Animals')">
+          <ion-card-header>
+            <ion-card-title class="category-title">Animals</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <ion-card class="category-card" (click)="navigateToGamePage('People')">
+          <ion-card-header>
+            <ion-card-title class="category-title">People</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card class="category-card" (click)="navigateToGamePage('Movies')">
+          <ion-card-header>
+            <ion-card-title class="category-title">Movies</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <ion-card class="category-card" (click)="navigateToGamePage('Food')">
+          <ion-card-header>
+            <ion-card-title class="category-title">Food</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

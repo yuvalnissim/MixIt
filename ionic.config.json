@@ -1,0 +1,10 @@
+{
+  "name": "mixitApp",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

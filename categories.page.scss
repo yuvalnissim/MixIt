@@ -1,0 +1,27 @@
+/* Custom styling for the CategoriesPage */
+
+ion-content {
+  --ion-background-color: #020202; /* Set background color for the page */
+}
+
+.category-card {
+  --background: linear-gradient(to bottom right, #FFD700, #FFA500); /* Gradient background color */
+  --background-hover: linear-gradient(to bottom right, #FFA500, #FFD700); /* Gradient background color on card hover */
+  --border-radius: 16px; /* Rounded card corners */
+  --box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  --padding-start: 16px; /* Left padding */
+  --padding-end: 16px; /* Right padding */
+  margin-bottom: 16px; /* Space between cards */
+  margin-top: 30px; /* Space between cards */
+  cursor: pointer;
+}
+
+.category-title {
+  font-size: 24px; /* Increase font size */
+  color: rgb(5, 5, 5); /* Font color */
+  text-align: center;
+}
+
+.category-card:hover {
+  background: var(--background-hover);
+}

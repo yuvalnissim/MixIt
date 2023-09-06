@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mixit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="score-container">
+    <p class="timer">Time Left: {{ remainingTime }}s</p>
+    <p>Lives: {{ lives }}</p>
+    <p>Score: {{ score }}</p>
+    </div>
+  
+  
+  <div class="body">
+    
+    <div class="image-container">
+      <img [src]="currentImage" alt="Animal Picture" class="game-image">
+    </div>
+
+
+    <div class="button-container">
+      <!-- <ion-button expand="full" color="primary" (click)="submit()">Submit</ion-button> -->
+      <ion-button expand="full" color="medium" (click)="nextPicture()">Next Picture</ion-button>
+    </div>
+    
+
+    <div *ngIf="gameFinished">
+      <h2>Game Finished!</h2>
+      <h3>Your Final Score: {{ finalScore }}</h3>
+    </div>
+
+    <!-- <div class="animal-images">
+      <img *ngFor="let animalImage of animalImages" [src]="animalImage" alt="Animal" class="animal-image" (click)="selectAnimal(animalImage)">
+    </div> -->
+
+    <div class="border">
+      
+    </div>
+
+    <div class="animal-images">
+      <img
+        *ngFor="let animalImage of animalImages"
+        [src]="animalImage"
+        alt="Animal"
+        class="animal-image"
+        [class.selected]="isSelected(animalImage)"
+        (click)="selectAnimal(animalImage)"
+      />
+    </div>
+  </div>
+  <!-- <p class="timer">Time Left: {{ remainingTime }}s</p> -->
+
+  <!-- <div class="score-container">
+    <p>Score: {{ score }}</p>
+  </div> -->
+
+  
+</ion-content>

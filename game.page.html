@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ category }} Mix
+      <!-- Guess the hidden elements -->
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="score-container">
+    <p class="timer">Time Left: {{ remainingTime }}s</p>
+    <p class="lives">Lives: {{ lives }}</p>
+    <p class="score">Score: {{ score }}</p>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-img id="animalImage" [src]="getCurrentImageUrl()" alt="Mixed Animal Image" class="animal-image"></ion-img>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <!-- Add the "Next Picture" button below the mixed animal image -->
+        <ion-button (click)="nextPicture()">Next Picture</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="animal-images">
+          <!-- Loop through the random animal URLs and create image elements for each -->
+          <ion-img
+            *ngFor="let imageUrl of randomObjectUrls"
+            [src]="imageUrl"
+            class="additional-animal-image"
+            (click)="handleImageClickExtractAnimalName($event, imageUrl)"
+          ></ion-img>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,547 @@
+#  6 mixeded + UI + prints of animal names that were clicked 
+
+# import { Component, OnDestroy } from '@angular/core';
+# import { Platform } from '@ionic/angular';
+# import { NavController } from '@ionic/angular';
+# import { HttpClient } from '@angular/common/http';
+# import { delay, forkJoin, of, Observable} from 'rxjs';
+# import { switchMap } from 'rxjs/operators';
+# import { map } from 'rxjs/operators';
+
+
+# interface AnimalData {
+#   FirstAnimal: string;
+#   SecondAnimal: string;
+#   ImageURL: string;
+#   FirstAnimalURL: string; // Add this property for the specific animal URL
+#   SecondAnimalURL: string; // Add this property for the specific animal URL
+# }
+
+
+# @Component({
+#   selector: 'app-game',
+#   templateUrl: 'game.page.html',
+#   styleUrls: ['game.page.scss'],
+# })
+# export class GamePage implements OnDestroy {
+#   imageUrls: AnimalData[] = [];
+#   currentIndex: number = 0;
+#   displayDuration: number = 7000; // 7 seconds
+#   finalScore: number = 0;
+#   playerName: string = '';
+#   timer: any;
+#   remainingTime: number = 7; // 7 seconds
+#   countdownInterval: any;
+#   randomAnimalUrls: string[] = [];
+#   randomAnimalsFetched: boolean = false;
+#   selectedAnimalIndex: number[] = []; // Store the indices of the selected animal images
+#   selectedAnimalImages: HTMLImageElement[] = [];
+#   userPicks: string[] = [];
+#   score: number = 0;
+  
+#   handleImageClick() {
+#     console.log('Clicked on an animal image');
+#   }
+  
+#   handleImageClickExtractAnimalName(event: Event): void {
+#     // Get the clicked element
+#     const clickedImage = event.target as HTMLImageElement;
+  
+#     // Extract the animal name from the clicked image's URL
+#     const imageUrl = clickedImage.src;
+#     this.extractAnimalNameFromUrl(imageUrl).subscribe((animalName) => {
+#       console.log('Clicked on image:', animalName);
+#     });
+#   }
+
+#   extractAnimalNameFromUrl(imageUrl: string): Observable<string> {
+#     // Extract the animal name from the image URL
+#     const startIndex = imageUrl.lastIndexOf('/') + 1;
+#     const endIndex = imageUrl.lastIndexOf('.');
+#     const animalName = imageUrl.substring(startIndex, endIndex);
+#     return of(animalName);
+#   }
+
+#   // handleUserPick(pickedAnimalUrl: string): void {
+#   //   console.log('Enrered handleUserPick function');
+
+#   //   // Fetch the animal name from the server based on the pickedAnimalUrl
+#   //   this.getAnimalNameFromUrl(pickedAnimalUrl).subscribe(
+#   //     (animalName) => {
+#   //       console.log('User picked:', animalName);
+  
+#   //       // Convert animal names to lowercase for case-insensitive comparison
+#   //       const firstAnimal = this.imageUrls[this.currentIndex].FirstAnimal.toLowerCase();
+#   //       const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal.toLowerCase();
+#   //       const pick = animalName.toLowerCase();
+  
+#   //       // Check if the user's pick is correct
+#   //       if (pick === firstAnimal || pick === secondAnimal) {
+#   //         this.score += 10; // Increment the score by 10 for each correct pick
+#   //         this.updateScoreDisplay(); // Update the displayed score
+#   //       }
+  
+#   //       // Proceed to the next picture
+#   //       this.displayNextPicture();
+#   //     },
+#   //     (error) => {
+#   //       console.error('Failed to fetch animal name:', error);
+#   //     }
+#   //   );
+#   // }
+
+
+
+
+#   constructor(
+#     private platform: Platform,
+#     private navCtrl: NavController,
+#     private http: HttpClient
+#   ) {
+#     this.platform.ready().then(() => {
+#       this.startGame();
+#     });
+#   }
+
+#   ngOnDestroy() {
+#     clearInterval(this.countdownInterval);
+#   }
+
+
+#   // Updated fetchRandomAnimals() function
+# fetchRandomAnimals() {
+#   // Create a comma-separated string of random animal names to exclude from the query
+#   const excludeAnimals = this.randomAnimalUrls.join(',');
+
+#   // Fetch random animal image URLs from the server and pass the excludeAnimals parameter
+#   this.http.get<string[]>(`http://localhost:3333/randomAnimals?excludeAnimals=${encodeURIComponent(excludeAnimals)}`).subscribe(
+#     (imageUrls: string[]) => {
+#       // Ensure we have at least 4 new random animal URLs
+#       const additionalRandomURLs = this.getRandomUniqueElements(imageUrls, 4 - this.randomAnimalUrls.length);
+#       this.randomAnimalUrls.push(...additionalRandomURLs);
+
+#       // Shuffle the array before displaying the images
+#       this.randomAnimalUrls = this.shuffleArray(this.randomAnimalUrls);
+
+#       // Check if we have enough URLs to display
+#       if (this.randomAnimalUrls.length === 6) {
+#         this.displayRandomAnimals();
+#       }
+#     },
+#     (error) => {
+#       console.error('Failed to fetch random animal images:', error);
+#       alert('Failed to fetch random animal images. Please try again.');
+#     }
+#   );
+# }
+
+
+#   startGame() {
+#     this.finalScore = 0;
+#     this.playerName = '';
+#     this.timer = null;
+#     this.remainingTime = 5;
+#     this.countdownInterval = null;
+#     this.fetchRandomAnimals(); // Make sure this line is correct
+
+  
+#     // Fetch mixed animal image URLs from the server
+#     const mixedAnimalURLs$ = this.http.get<AnimalData[]>('http://localhost:3333/mixedAnimal');
+
+#     // Fetch random animal image URLs from the server
+#     const randomAnimalURLs$ = this.http.get<string[]>('http://localhost:3333/randomAnimals');
+
+#     // Use forkJoin to make parallel API calls
+#     forkJoin([mixedAnimalURLs$, randomAnimalURLs$]).subscribe(
+#       ([mixedAnimalURLs, randomAnimalURLs]: [AnimalData[], string[]]) => {
+#         this.imageUrls = mixedAnimalURLs;
+#         this.randomAnimalUrls = randomAnimalURLs;
+
+#         this.updateRandomAnimals().subscribe(() => {
+#           // Start displaying images
+#           this.displayRandomAnimals();
+#         });
+#       },
+#       (error) => {
+#         console.error('Failed to fetch data:', error);
+#         alert('Failed to fetch data. Please try again.');
+#       }
+#     );
+#   }
+  
+  
+
+
+#   // Updated displayRandomAnimals() function
+#   displayRandomAnimals() {
+#     clearTimeout(this.timer);
+#     clearInterval(this.countdownInterval);
+
+#     this.resetUI(); // Reset the UI before displaying new specific animal images
+  
+#     // Check if currentIndex is within bounds
+#     if (this.currentIndex < this.imageUrls.length) {
+#       const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+#       this.displayRandomImage(imageUrl);
+  
+#       // Display the specific animal images for the current mixedAnimal picture
+#       const specificAnimalURLs = [
+#         this.imageUrls[this.currentIndex].FirstAnimalURL,
+#         this.imageUrls[this.currentIndex].SecondAnimalURL
+#       ];
+  
+#       if (this.randomAnimalUrls.length < 6) {
+#         // Fetch 4 random animal image URLs to ensure we have enough for the next picture
+#         this.fetchRandomAnimals();
+#       } else {
+#         // Shuffle the array before displaying the images
+#         this.randomAnimalUrls = this.shuffleArray(this.randomAnimalUrls);
+  
+#         // Display the images using the shuffled URLs
+#         for (let i = 0; i < this.randomAnimalUrls.length; i++) {
+#           const animalImageElement = document.getElementById(`randomAnimalImage${i}`) as HTMLImageElement;
+#           if (animalImageElement) {
+#             animalImageElement.src = this.randomAnimalUrls[i];
+#           }
+#         }
+  
+#         this.displaySpecificAnimals(specificAnimalURLs, imageUrl); // Display specific animal images
+  
+#         // Start the countdown
+#         this.remainingTime = 7;
+#         this.countdownInterval = setInterval(() => {
+#           this.remainingTime--;
+#           if (this.remainingTime === 0) {
+#             clearInterval(this.countdownInterval);
+#             this.currentIndex++; // Move to the next image
+  
+#             // Call updateRandomAnimals() to update the mixed picture and random animal pictures
+#             this.updateRandomAnimals().subscribe(() => {
+#               this.displayRandomAnimals(); // Call recursively with the updated images
+#             });
+#           }
+#         }, 1000);
+#       }
+#     } else {
+#       // All images have been displayed
+#       this.finishGame();
+#     }
+#   }
+  
+#   updateScoreDisplay() {
+#     const scoreElement = document.getElementById('score') as HTMLElement;
+#     if (scoreElement) {
+#       scoreElement.textContent = `Score: ${this.score}`;
+#     }
+#   }
+
+
+
+  
+#   updateRandomAnimals(): Observable<any> {
+#     const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+#     const firstAnimal = this.imageUrls[this.currentIndex].FirstAnimal;
+#     const secondAnimal = this.imageUrls[this.currentIndex].SecondAnimal;
+  
+#     console.log('Updating random animals:');
+#     console.log('First Animal:', firstAnimal);
+#     console.log('Second Animal:', secondAnimal);
+  
+#     // Fetch specific animal image URLs for FirstAnimal and SecondAnimal separately
+#     const specificAnimalFirst$ = this.http.get<string[]>(`http://localhost:3333/specificAnimals?firstAnimal=${encodeURIComponent(firstAnimal)}`);
+#     const specificAnimalSecond$ = this.http.get<string[]>(`http://localhost:3333/specificAnimals?secondAnimal=${encodeURIComponent(secondAnimal)}`);
+  
+#     // Fetch random animal image URLs excluding FirstAnimal and SecondAnimal
+#     const excludeAnimals = `${firstAnimal},${secondAnimal}`;
+#     const randomAnimalURLs$ = this.http.get<string[]>(`http://localhost:3333/randomAnimals?excludeAnimals=${encodeURIComponent(excludeAnimals)}`);
+  
+#     // Log the SQL query for the specific animal FirstAnimal
+#     specificAnimalFirst$.subscribe((specificAnimalFirstUrls) => {
+#       //console.log('SQL Query for First Animal:', specificAnimalFirstUrls);
+#     });
+  
+#     // Log the SQL query for the specific animal SecondAnimal
+#     specificAnimalSecond$.subscribe((specificAnimalSecondUrls) => {
+#       //console.log('SQL Query for Second Animal:', specificAnimalSecondUrls);
+#     });
+
+    
+  
+#     return forkJoin([specificAnimalFirst$, specificAnimalSecond$, randomAnimalURLs$]).pipe(
+#       switchMap(([specificAnimalFirst, specificAnimalSecond, randomAnimalURLs]: [string[], string[], string[]]) => {
+#         console.log('Specific Animal URLs for First Animal:', specificAnimalFirst);
+#         console.log('Specific Animal URLs for Second Animal:', specificAnimalSecond);
+#         //console.log('Random Animal URLs:', randomAnimalURLs);
+  
+#         // Shuffle the arrays to get random elements
+#         specificAnimalFirst = this.shuffleArray(specificAnimalFirst);
+#         specificAnimalSecond = this.shuffleArray(specificAnimalSecond);
+#         randomAnimalURLs = this.shuffleArray(randomAnimalURLs);
+  
+#         // Ensure we have exactly 2 specific animal URLs for each FirstAnimal and SecondAnimal
+#         const selectedSpecificURLs = [...specificAnimalFirst.slice(0, 2), ...specificAnimalSecond.slice(0, 2)];
+  
+#         // Include the specific animal URLs in the random animal URLs array
+#         const selectedRandomURLs = [...selectedSpecificURLs, ...this.getRandomUniqueElements(randomAnimalURLs, 4)];
+#         const allAnimalURLs = [...selectedSpecificURLs, ...selectedRandomURLs];
+#         this.displaySpecificAnimals(allAnimalURLs, imageUrl);
+  
+#         // Update the randomAnimalUrls array with the new URLs
+#         this.randomAnimalUrls = selectedRandomURLs;
+  
+#         // Return an observable that resolves when the data is updated
+#         return of(null);
+#       })
+#     );
+#   }
+  
+  
+
+#   getRandomUniqueElements(array: any[], count: number): any[] {
+#     // Function to get 'count' random unique elements from the array
+#     if (array.length <= count) {
+#       return array;
+#     }
+  
+#     const result: any[] = [];
+#     const indices: Set<number> = new Set();
+  
+#     while (indices.size < count) {
+#       const index = Math.floor(Math.random() * array.length);
+#       if (!indices.has(index)) {
+#         indices.add(index);
+#         result.push(array[index]);
+#       }
+#     }
+  
+#     return result;
+#   }
+  
+
+#   shuffleArray(array: any[]): any[] {
+#     for (let i = array.length - 1; i > 0; i--) {
+#       const j = Math.floor(Math.random() * (i + 1));
+#       [array[i], array[j]] = [array[j], array[i]];
+#     }
+#     return array;
+#   }
+  
+  
+  
+  
+#   displaySpecificAnimals(specificAnimalURLs: string[], mixedAnimalImageUrl: string) {
+
+#     console.log('Displaying specific animals...');
+#     console.log('Mixed Animal URL:', mixedAnimalImageUrl);
+#     //console.log('Specific Animal URLs:', specificAnimalURLs);
+#     // Display the mixedAnimal image
+#     this.displayRandomImage(mixedAnimalImageUrl);
+  
+#     // Display the specific animal images below the mixedAnimal image
+#     const specificAnimalImageElements = document.getElementsByClassName('specific-animal-image');
+  
+#     const specificAnimalImageArray = Array.from(specificAnimalImageElements) as HTMLImageElement[];
+#     for (let i = 0; i < specificAnimalImageArray.length; i++) {
+#       if (i < 2 && specificAnimalURLs[i]) {
+#         specificAnimalImageArray[i].src = specificAnimalURLs[i];
+#       } else {
+#         specificAnimalImageArray[i].src = this.randomAnimalUrls[i - 2]; // Set the remaining images to random animals
+#       }
+#     }  
+# }
+  
+
+
+# getAnimalNameFromUrl(imageUrl: string): Observable<string> {
+#   // Send a request to the server endpoint to get the animal name based on the image URL
+#   return this.http.get<{ animalName: string }>('http://localhost:3333/animalName', {
+#     params: { imageUrl: imageUrl }
+#   }).pipe(
+#     map((response) => response.animalName)
+#   );
+# }
+ 
+
+#   onAnimalImageClick(event: Event) {
+#     // Prevent the default behavior of the click event
+#     event.preventDefault();
+  
+#     // Get the clicked element
+#     const clickedImage = event.target as HTMLImageElement;
+  
+#     // Check if the clicked image is already selected
+#     const isImageSelected = this.selectedAnimalImages.includes(clickedImage);
+  
+#     // Check if the user has already selected two images
+#     if (this.selectedAnimalImages.length < 2 || isImageSelected) {
+#       // Toggle the "clicked" class to apply/remove the colorful frame
+#       clickedImage.classList.toggle('clicked');
+  
+#       // Add or remove the clicked image from the selectedAnimalImages array
+#       if (isImageSelected) {
+#         this.selectedAnimalImages = this.selectedAnimalImages.filter(
+#           (img) => img !== clickedImage
+#         );
+#       } else {
+#         this.selectedAnimalImages.push(clickedImage);
+#       }
+#     }
+#   }
+
+  
+
+#   displayRandomImage(imageUrl: string) {
+#     const animalImageElement = document.getElementById(
+#       'animalImage'
+#     ) as HTMLImageElement;
+#     if (animalImageElement) {
+#       animalImageElement.src = imageUrl;
+#     }
+#   }
+
+#   getCurrentImageUrl(): string {
+#     if (this.imageUrls.length > 0) {
+#       return this.imageUrls[this.currentIndex].ImageURL;
+#     } else {
+#       return ''; // Return an empty string if no image URLs are available
+#     }
+#   }
+
+#   resetUI() {
+#     // Remove the "clicked" class from all animal images
+#     const animalImages = document.querySelectorAll('.additional-animal-image, .animal-image');
+#     animalImages.forEach((img) => img.classList.remove('clicked'));
+  
+#     // Reset the selectedAnimalImages array
+#     this.selectedAnimalImages = [];
+#   }
+
+#   nextPicture() {
+#     this.resetUI(); // Reset the UI before moving to the next picture
+  
+#     this.displayNextPicture(); // Call displayNextPicture() to show the next mixed animal picture
+  
+#     // Update random animal pictures for the next mixed animal picture
+#     this.updateRandomAnimals().subscribe(() => {
+#       this.displayRandomAnimals();
+#     });
+#   }
+  
+#   displayNextPicture() {
+#     // Clear the countdown interval to prevent double counting
+#     clearInterval(this.countdownInterval);
+#     this.remainingTime = 7;
+  
+#     // Check if currentIndex is within bounds
+#     if (this.currentIndex < this.imageUrls.length - 1) {
+#       this.currentIndex++; // Move to the next image
+#     } else {
+#       // Call updateRandomAnimals() when the user reaches the end of all images
+#       this.currentIndex = 0; // Reset the index
+#     }
+  
+#     // Get the next image URL
+#     const imageUrl = this.imageUrls[this.currentIndex].ImageURL;
+#     this.displayRandomImage(imageUrl);
+  
+#     // Start the countdown
+#     this.countdownInterval = setInterval(() => {
+#       this.remainingTime--;
+#       if (this.remainingTime === 0) {
+#         clearInterval(this.countdownInterval);
+#         this.updateRandomAnimals().subscribe(() => {
+#           this.displayRandomAnimals(); // Call recursively with the updated images
+#         });
+#       }
+#     }, 1000);
+#   }
+  
+  
+  
+
+#   finishGame() {
+#     // Logic for finishing the game
+#   }
+
+#   seeTopTen() {
+#     this.navCtrl.navigateForward('/top-ten');
+#   }
+
+
+#   private sendScore() {
+#     // Prepare the data to be sent
+#     const data = { name: this.playerName, score: this.finalScore };
+
+#     // Send a POST request to your API endpoint
+#     //this.http.post('http://gamedb.cbgja1mg2wpp.us-east-1.rds.amazonaws.com/score_table', data).subscribe(
+#     this.http.post('http://localhost:3333/score_table', data).subscribe(
+#       () => {
+#         // Handle the successful response
+#         console.log('Score saved successfully');
+#         // this.navCtrl.navigateBack('/home');
+#         this.navCtrl.navigateBack('/top-ten');
+#       },
+#       (error) => {
+#         // Handle errors
+#         console.error('Failed to save score:', error);
+#         const errorMessage = error.error?.error || 'Failed to save score. Please try again.';
+#         alert('Failed to save score. Please try again: ' + errorMessage);
+#       }
+#     );
+#   }
+
+  
+# } -->
+
+
+
+<!-- # HTML :
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Mixit
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="score-container">
+    <p class="timer">Time Left: {{ remainingTime }}s</p>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-img id="animalImage" [src]="getCurrentImageUrl()" alt="Mixed Animal Image" class="animal-image"></ion-img>
+    </ion-row>
+   
+    <ion-row>
+      <ion-col>
+        <!-- Add the "Next Picture" button below the mixed animal image -->
+        <ion-button (click)="nextPicture()">Next Picture</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="animal-images">
+          <!-- Loop through the random animal URLs and create image elements for each -->
+          <ion-img
+            *ngFor="let imageUrl of randomAnimalUrls"
+            [src]="imageUrl"
+            class="additional-animal-image"
+            (click)="handleImageClick()"
+            (click)="handleImageClickExtractAnimalName($event)"
+            (click)="onAnimalImageClick($event)"
+          ></ion-img>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <!-- Display player's name and final score -->
+  <div class="score-container">
+    <p>Final Score: {{ finalScore }}</p>
+  </div>
+
+</ion-content>
